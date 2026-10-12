@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.liceo.portal.controller.ScheduleController"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            stylesheets="@doctor-schedule.css, @teleconsult-theme.css"
+            styleClass="schedule-root doctor-page">
+
+    <content>
+        <VBox spacing="24" styleClass="schedule-content">
+
+            <VBox spacing="5">
+                <Label text="Manage Schedule" styleClass="page-title"/>
+                <Label text="Set the days and time slots when patients can book you."
+                       styleClass="page-description"/>
+            </VBox>
+
+            <HBox spacing="18">
+
+                <VBox HBox.hgrow="ALWAYS" spacing="14" styleClass="calendar-card">
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Button text="‹" onAction="#handlePreviousMonth"
+                                styleClass="calendar-nav-button"/>
+
+                        <Label fx:id="monthLabel" text="September 2026"
+                               HBox.hgrow="ALWAYS"
+                               styleClass="month-title"/>
+
+                        <Button text="›" onAction="#handleNextMonth"
+                                styleClass="calendar-nav-button"/>
+                    </HBox>
+
+                    <Button text="Today" onAction="#handleToday"
+                            styleClass="today-button"/>
+
+                    <GridPane fx:id="calendarGrid" hgap="8" vgap="8"
+                              styleClass="calendar-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                            <ColumnConstraints percentWidth="14.2857"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints prefHeight="28"/>
+                            <RowConstraints prefHeight="68"/>
+                            <RowConstraints prefHeight="68"/>
+                            <RowConstraints prefHeight="68"/>
+                            <RowConstraints prefHeight="68"/>
+                            <RowConstraints prefHeight="68"/>
+                            <RowConstraints prefHeight="68"/>
+                        </rowConstraints>
+                    </GridPane>
+
+                    <HBox spacing="18" alignment="CENTER_LEFT">
+                        <HBox spacing="7" alignment="CENTER_LEFT">
+                            <VBox styleClass="legend-green"/>
+                            <Label text="Available" styleClass="legend-label"/>
+                        </HBox>
+                        <HBox spacing="7" alignment="CENTER_LEFT">
+                            <VBox styleClass="legend-red"/>
+                            <Label text="Not available" styleClass="legend-label"/>
+                        </HBox>
+                    </HBox>
+
+                </VBox>
+
+                <VBox prefWidth="320" spacing="18" styleClass="control-card">
+
+                    <VBox spacing="4">
+                        <Label text="Selected Date" styleClass="card-label"/>
+                        <Label fx:id="selectedDateLabel"
+                               text="Today"
+                               wrapText="true"
+                               styleClass="selected-date"/>
+                    </VBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="Status" styleClass="card-label"/>
+                        <Label fx:id="availabilityLabel"
+                               text="AVAILABLE"
+                               styleClass="availability-green"/>
+                    </HBox>
+
+                    <Button text="Toggle Availability"
+                            onAction="#handleToggleAvailability"
+                            styleClass="primary-button"/>
+
+                    <VBox fx:id="timePanel" spacing="12" styleClass="time-panel">
+                        <Label text="Time Slots" styleClass="section-title"/>
+
+                        <ComboBox fx:id="timeComboBox"
+                                  promptText="Choose a time"
+                                  maxWidth="Infinity"
+                                  styleClass="combo-box"/>
+
+                        <HBox spacing="10">
+                            <Button text="Add Time"
+                                    onAction="#handleAddTime"
+                                    styleClass="secondary-button"
+                                    HBox.hgrow="ALWAYS"/>
+                            <Button text="Remove Time"
+                                    onAction="#handleRemoveTime"
+                                    styleClass="danger-button"
+                                    HBox.hgrow="ALWAYS"/>
+                        </HBox>
+                    </VBox>
+
+                    <Label text="Green dates can be booked by patients. Red dates are blocked."
+                           wrapText="true"
+                           styleClass="help-text"/>
+
+                    <Label fx:id="messageLabel"
+                           wrapText="true"
+                           styleClass="message"/>
+
+                </VBox>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>

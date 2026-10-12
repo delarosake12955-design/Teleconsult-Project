@@ -1,0 +1,14 @@
+/* Nurse forgot-password: touches that are unique to this page. */
+
+.login-nurse .hero-panel {
+    -fx-background-color: linear-gradient(to bottom right, -role-hero-a, -role-hero-b);
+}
+
+.login-nurse .step-num {
+    -fx-background-radius: 18;
+}
+
+.login-nurse .reset-icon {
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}

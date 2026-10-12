@@ -1,0 +1,77 @@
+/* ==========================================================
+   Profile customization: card, colour swatches, about-me line
+   ========================================================== */
+
+.customize-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 22;
+    -fx-border-color: #CFE0FF;
+    -fx-border-width: 1;
+    -fx-border-radius: 22;
+    -fx-padding: 26;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.10), 18, 0.08, 0, 6);
+}
+
+.customize-hint {
+    -fx-text-fill: #6b7a9c;
+    -fx-font-size: 12px;
+}
+
+.customize-button {
+    -fx-background-color: #EDF3FF;
+    -fx-text-fill: #1d4ed8;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+}
+
+.customize-button:hover {
+    -fx-background-color: #DCE9FF;
+}
+
+.customize-button-ghost {
+    -fx-background-color: transparent;
+    -fx-text-fill: #52618a;
+    -fx-font-weight: bold;
+    -fx-border-color: #DBE6FF;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 9 18 9 18;
+    -fx-cursor: hand;
+}
+
+.customize-button-ghost:hover {
+    -fx-background-color: #F5F8FF;
+}
+
+/* colour swatches (the colour of each one is set from the theme list) */
+.theme-swatch {
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+    -fx-background-radius: 20;
+    -fx-border-color: white;
+    -fx-border-width: 3;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.22), 6, 0.15, 0, 2);
+}
+
+.theme-swatch:hover {
+    -fx-translate-y: -2;
+}
+
+.theme-swatch-selected {
+    -fx-border-color: #101A43;
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.40), 10, 0.2, 0, 3);
+}
+
+/* the "about me" line in the header */
+.profile-bio {
+    -fx-text-fill: rgba(255, 255, 255, 0.92);
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+    -fx-padding: 4 0 0 0;
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:id="card"
+      fx:controller="ph.edu.liceo.portal.controller.ToastController"
+      stylesheets="@popup-theme.css"
+      styleClass="toast-card"
+      prefWidth="340"
+      minWidth="340"
+      maxWidth="340">
+
+    <HBox spacing="12"
+          alignment="TOP_LEFT">
+
+        <StackPane fx:id="bellPane"
+                   styleClass="toast-bell-pane"
+                   minWidth="50" minHeight="50"
+                   prefWidth="50" prefHeight="50"
+                   maxWidth="50" maxHeight="50">
+
+            <Group scaleX="1.6" scaleY="1.6">
+
+                <!-- sound waves that pulse on every ring -->
+                <SVGPath fx:id="waveLeftInner"
+                         content="M3.6 8.2 C2.7 9.2 2.2 10.5 2.2 11.9"
+                         styleClass="toast-wave"/>
+                <SVGPath fx:id="waveLeftOuter"
+                         content="M1.7 6.0 C0.3 7.7 -0.4 9.7 -0.4 11.9"
+                         styleClass="toast-wave"/>
+                <SVGPath fx:id="waveRightInner"
+                         content="M20.4 8.2 C21.3 9.2 21.8 10.5 21.8 11.9"
+                         styleClass="toast-wave"/>
+                <SVGPath fx:id="waveRightOuter"
+                         content="M22.3 6.0 C23.7 7.7 24.4 9.7 24.4 11.9"
+                         styleClass="toast-wave"/>
+
+                <!-- the bell itself swings from its top -->
+                <Group fx:id="bellSwing">
+                    <SVGPath content="M12 2.4 C11.2 2.4 10.6 3.0 10.6 3.8 L10.6 4.4 C7.9 5.1 6.2 7.4 6.2 10.2 L6.2 14.1 L4.2 16.5 L4.2 17.5 L19.8 17.5 L19.8 16.5 L17.8 14.1 L17.8 10.2 C17.8 7.4 16.1 5.1 13.4 4.4 L13.4 3.8 C13.4 3.0 12.8 2.4 12 2.4 Z"
+                             styleClass="toast-bell-body"/>
+                    <SVGPath content="M9.4 18.5 C9.4 19.9 10.6 21.1 12 21.1 C13.4 21.1 14.6 19.9 14.6 18.5 Z"
+                             styleClass="toast-bell-clapper"/>
+                    <SVGPath content="M8.3 9.0 C8.6 7.7 9.5 6.7 10.7 6.2"
+                             styleClass="toast-bell-shine"/>
+                </Group>
+
+            </Group>
+
+            <!-- small badge keeps the type visible: i / check / ! -->
+            <StackPane fx:id="iconCircle"
+                       styleClass="toast-icon-circle"
+                       StackPane.alignment="BOTTOM_RIGHT">
+                <Label fx:id="iconLabel"
+                       text="i"
+                       styleClass="toast-icon"/>
+            </StackPane>
+
+        </StackPane>
+
+        <VBox spacing="3"
+              HBox.hgrow="ALWAYS">
+
+            <HBox spacing="8"
+                  alignment="CENTER_LEFT">
+
+                <Label fx:id="titleLabel"
+                       text="Notification"
+                       styleClass="toast-title"/>
+
+                <Label fx:id="timeLabel"
+                       text="just now"
+                       styleClass="toast-time"/>
+
+            </HBox>
+
+            <Label fx:id="messageLabel"
+                   text=""
+                   wrapText="true"
+                   maxWidth="230"
+                   styleClass="toast-message"/>
+
+        </VBox>
+
+        <Button fx:id="closeButton"
+                text="✕"
+                onAction="#handleClose"
+                styleClass="toast-close"/>
+
+    </HBox>
+
+    <ProgressBar fx:id="timerBar"
+                 progress="1"
+                 maxWidth="Infinity"
+                 styleClass="toast-timer"/>
+
+</VBox>

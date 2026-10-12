@@ -1,0 +1,684 @@
+/* ============================================================
+   TELECONSULT HOMEPAGE DESIGN SYSTEM
+   Shared visual language for dashboard and inner pages.
+============================================================ */
+
+.root, .page {
+    -fx-background-color: linear-gradient(to bottom right, #F5F8FF, #E9EFFC);
+    -fx-font-family: "Arial";
+}
+
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #0C1330, #151E48);
+    -fx-border-color: transparent;
+    -fx-padding: 28 18 24 18;
+    -fx-effect: dropshadow(gaussian, rgba(15,29,72,0.25), 24, 0.18, 6, 0);
+}
+
+.brand-container {
+    -fx-padding: 4 4 24 4;
+}
+
+.brand-icon {
+    -fx-background-color: linear-gradient(to bottom right, #4B8CFF, #2764DC);
+    -fx-background-radius: 14;
+    -fx-min-width: 46;
+    -fx-min-height: 46;
+    -fx-max-width: 46;
+    -fx-max-height: 46;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.40), 14, 0.2, 0, 4);
+}
+
+.brand-plus {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-logo {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #7180AE;
+    -fx-font-size: 8px;
+    -fx-font-weight: bold;
+}
+
+.portal-label, .account-label {
+    -fx-text-fill: #65719D;
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 8 8 8;
+}
+
+.nav-button, .nav-button-active {
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9DA9CE;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(76,133,245,0.15);
+    -fx-text-fill: white;
+    -fx-translate-x: 2px;
+}
+
+.nav-button-active {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2869E5);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.25), 10, 0.1, 0, 3);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8290B5;
+    -fx-background-radius: 10;
+    -fx-padding: 12 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-text-fill: white;
+}
+
+.content-host {
+    -fx-background-color: transparent;
+}
+
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.main-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-background-color: transparent;
+    -fx-padding: 38 42 45 42;
+}
+
+.greeting {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 13px;
+}
+
+.description, .section-subtitle, .stat-description, .quick-description,
+.request-details, .appointment-details, .verification-text {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 12px;
+}
+
+.doctor-name, .patient-name, .nurse-name, .secretary-name, .admin-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 31px;
+    -fx-font-weight: bold;
+}
+
+.profile-mini-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+    -fx-padding: 12 18;
+    -fx-effect: dropshadow(gaussian, rgba(31,55,100,0.07), 14, 0.08, 0, 4);
+}
+
+.profile-icon {
+    -fx-background-color: #EAF1FF;
+    -fx-background-radius: 12;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+.profile-plus {
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.profile-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.profile-role {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 10px;
+}
+
+.stat-card, .request-card, .appointment-card, .quick-card,
+.verification-card, .schedule-card, .welcome-card, .status-card,
+.consultation-card, .record-card, .history-card, .information-card,
+.account-card, .details-card {
+    -fx-background-color: rgba(255,255,255,0.96);
+    -fx-background-radius: 18;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 18;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(31,55,100,0.08), 16, 0.08, 0, 5);
+}
+
+.stat-card {
+    -fx-background-color: #EAF1FF;
+}
+
+.stat-title, .card-title {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.stat-number {
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 29px;
+    -fx-font-weight: bold;
+}
+
+.section-title, .quick-title, .welcome-title {
+    -fx-text-fill: #101A43;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-font-size: 19px;
+}
+
+.quick-title {
+    -fx-font-size: 16px;
+}
+
+.welcome-title {
+    -fx-font-size: 26px;
+}
+
+.primary-button, .card-button {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2869E5);
+    -fx-background-radius: 11;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover, .card-button:hover {
+    -fx-background-color: #2869E5;
+}
+
+.secondary-button, .link-button, .profile-button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 11;
+    -fx-border-color: #AFC5F7;
+    -fx-border-radius: 11;
+    -fx-text-fill: #2164DF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 15;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover, .link-button:hover, .profile-button:hover {
+    -fx-background-color: #EDF3FF;
+}
+
+.text-field, .text-area, .combo-box, .date-picker, .search-field,
+.filter-combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #D5DFEF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 9 12;
+    -fx-text-fill: #101A43;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused,
+.date-picker:focused, .search-field:focused {
+    -fx-border-color: #3478F6;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.14), 8, 0.1, 0, 2);
+}
+
+.request-icon, .quick-icon, .status-icon {
+    -fx-background-color: #EAF1FF;
+    -fx-background-radius: 12;
+}
+
+.request-plus, .quick-icon-text, .status-check {
+    -fx-text-fill: #3478F6;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-background-color: #E6F6EC;
+    -fx-text-fill: #18733A;
+    -fx-background-radius: 20;
+    -fx-padding: 6 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.main-content .table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 12;
+}
+
+.main-content .column-header-background,
+.main-content .column-header {
+    -fx-background-color: #EEF4FF;
+}
+
+.main-content .column-header .label {
+    -fx-text-fill: #101A43;
+    -fx-font-weight: bold;
+}
+
+.main-content .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #EEF2F8 transparent;
+}
+
+.main-content .table-row-cell:hover {
+    -fx-background-color: #F5F8FF;
+}
+
+
+
+/* ============================================================
+   TELECONSULT SHARED DESIGN OVERRIDES
+   Consistent palette: navy, medical blue, cool white, soft slate.
+   Page-specific rules above remain in place; these normalize
+   common controls, cards, tables, and typography.
+   ============================================================ */
+
+.root, .page, .main-content, .content-area {
+    -fx-font-family: "Arial";
+}
+
+.page-title, .section-title, .card-title, .panel-title {
+    -fx-text-fill: #101A43;
+}
+
+.page-description, .section-description, .table-description,
+.helper-text, .subtitle, .field-hint {
+    -fx-text-fill: #7885A7;
+}
+
+.summary-card, .form-card, .table-card, .calendar-card,
+.booking-options-card, .content-card, .stat-card, .panel-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+}
+
+.button {
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-cursor: hand;
+}
+
+.button:focused, .text-field:focused, .password-field:focused,
+.text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #3478F6;
+    -fx-border-width: 1.2;
+}
+
+.text-field, .password-field, .text-area, .combo-box, .date-picker {
+    -fx-font-family: "Arial";
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6C0;
+    -fx-border-color: #D5DFEF;
+    -fx-border-radius: 9;
+    -fx-background-radius: 9;
+}
+
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 12;
+    -fx-padding: 2;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F0F4FC;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #DCE5F4 transparent;
+    -fx-size: 38px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #344266;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #EDF1F8 transparent;
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFBFE;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #E5EEFF;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #101A43;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #C8D3E8;
+    -fx-background-radius: 8;
+}
+
+.separator .line {
+    -fx-border-color: #E3EAF5;
+}
+
+.check-box, .radio-button {
+    -fx-text-fill: #344266;
+}
+
+.tooltip {
+    -fx-background-color: #101A43;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 6;
+    -fx-font-size: 11px;
+}
+
+
+/* ============================================================
+   SHARED COMPONENTS (added for cross-page consistency)
+============================================================ */
+
+/* ---- Page structure ---- */
+.main-content {
+    -fx-padding: 32 36 36 36;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.page-description {
+    -fx-font-size: 13px;
+}
+
+.search-card, .information-card, .account-card, .consultation-card,
+.history-card, .record-card, .details-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+    -fx-padding: 22;
+}
+
+.search-card {
+    -fx-padding: 14 18;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.summary-card, .table-card {
+    -fx-padding: 20 22;
+}
+
+.summary-title {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.summary-number {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+/* ---- Field labels / values ---- */
+.field-label, .field-title {
+    -fx-text-fill: #65719D;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.field-value, .reason-value, .account-value {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.information-box, .account-item {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E3EAF7;
+    -fx-border-radius: 12;
+    -fx-padding: 14 16;
+}
+
+.account-title {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.notes-area {
+    -fx-background-color: #FFFFFF;
+}
+
+/* ---- Buttons ---- */
+.danger-button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 11;
+    -fx-border-color: #F0B4B4;
+    -fx-border-radius: 11;
+    -fx-text-fill: #C03636;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 15;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: #FDEEEE;
+}
+
+.button:disabled, .primary-button:disabled, .secondary-button:disabled,
+.danger-button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ---- Feedback messages ---- */
+.message {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #65719D;
+}
+
+.message-success {
+    -fx-text-fill: #1C8A4C;
+}
+
+.message-error {
+    -fx-text-fill: #C03636;
+}
+
+.empty-label {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 13px;
+    -fx-padding: 16;
+}
+
+/* ---- Directory cards (doctors / patients) ---- */
+.doctor-card, .patient-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+    -fx-padding: 18 22;
+    -fx-effect: dropshadow(gaussian, rgba(15,29,72,0.05), 10, 0.1, 0, 3);
+}
+
+.doctor-card:hover, .patient-card:hover {
+    -fx-border-color: #AFC5F7;
+}
+
+.doctor-name, .patient-card-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.specialty-label {
+    -fx-text-fill: #2164DF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.license-label, .patient-card-details {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 12px;
+}
+
+/* ---- Profile ---- */
+.profile-header {
+    -fx-background-color: linear-gradient(to right, #0C1330, #1B2A63);
+    -fx-background-radius: 18;
+    -fx-padding: 24;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.profile-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #4B8CFF, #2764DC);
+    -fx-background-radius: 60;
+    -fx-min-width: 96;
+    -fx-min-height: 96;
+    -fx-max-width: 96;
+    -fx-max-height: 96;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.40), 14, 0.2, 0, 4);
+}
+
+.avatar-text {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.profile-header .profile-name {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+}
+
+.profile-header .profile-role {
+    -fx-text-fill: #9DB8F5;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.profile-email {
+    -fx-text-fill: #C7D3F0;
+    -fx-font-size: 13px;
+}
+
+/* ---- Status pills & history list ---- */
+.history-item {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E3EAF7;
+    -fx-border-radius: 12;
+    -fx-padding: 14 16;
+    -fx-cursor: hand;
+}
+
+.history-item:hover {
+    -fx-border-color: #AFC5F7;
+}
+
+.history-item-selected {
+    -fx-background-color: #EAF1FF;
+    -fx-border-color: #3478F6;
+}
+
+.history-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.history-doctor, .history-date {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 12px;
+}
+
+.history-status {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 3 10;
+}
+
+.status-pending {
+    -fx-background-color: #FFF3DC;
+    -fx-text-fill: #A66A00;
+}
+
+.status-approved {
+    -fx-background-color: #E1EDFF;
+    -fx-text-fill: #2164DF;
+}
+
+.status-completed {
+    -fx-background-color: #DDF5E7;
+    -fx-text-fill: #1C8A4C;
+}
+
+.status-rejected {
+    -fx-background-color: #FDE4E4;
+    -fx-text-fill: #C03636;
+}
+
+/* ---- Tables ---- */
+.record-table, .main-content .table-view {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #7885A7;
+}

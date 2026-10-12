@@ -1,0 +1,35 @@
+/*
+ * Patient sign-in: colour palette + the small touches that make this page its own.
+ * Layout and shared controls are in login-theme.css (loaded first).
+ */
+
+.login-patient {
+    -role-dark:   #0B3B4D;
+    -role-main:   #0FA38C;
+    -role-main2:  #19C2A6;
+    -role-hover1: #2DD4B8;
+    -role-hover2: #17B89E;
+    -role-soft:   #E3F8F3;
+    -role-tint:   #CFF5EC;
+    -role-shadow: rgba(15,163,140,0.45);
+    -role-hero-a: #19C2A6;
+    -role-hero-b: #0B7F78;
+}
+
+.login-patient .hero-panel {
+    -fx-background-color: linear-gradient(to bottom right, -role-hero-a, -role-hero-b);
+}
+
+.login-patient .login-submit {
+    -fx-background-radius: 26;
+}
+
+.login-patient .login-input {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+/* Patient: soft, rounded and friendly; mint wash behind the form. */
+.login-patient .form-panel {
+    -fx-background-color: linear-gradient(to bottom, #EAFAF6 0%, #FFFFFF 38%);
+}

@@ -1,4 +1,7 @@
-package service;
+package ph.edu.liceo.portal.service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ph.edu.liceo.portal.data.DataStore;
 import ph.edu.liceo.portal.model.AccountStatus;
@@ -6,21 +9,69 @@ import ph.edu.liceo.portal.model.User;
 
 public class AuthenticationService {
 
-    public User login(String email, String password) {
+    public static final int MAX_ATTEMPTS = 5;
+    public static final long LOCK_MILLIS = 60_000;
 
-        for (User user : DataStore.users) {
+    private static final Map<String, Integer> failures = new HashMap<>();
+    private static final Map<String, Long> lockedUntil = new HashMap<>();
 
-            if (user.getEmail().equalsIgnoreCase(email)
-                    && user.getPassword().equals(password)) {
+    /** True while this email is temporarily locked after repeated failed sign-ins. */
+    public boolean isLockedOut(String email) {
+        String key = key(email);
+        Long until = lockedUntil.get(key);
 
-                if (user.getStatus() == AccountStatus.ACTIVE) {
-                    return user;
-                }
-
-                return null;
-            }
+        if (until == null) {
+            return false;
         }
 
+        if (System.currentTimeMillis() >= until) {
+            lockedUntil.remove(key);
+            failures.remove(key);
+            return false;
+        }
+
+        return true;
+    }
+
+    /** Forgets earlier failed sign-ins (used after a successful password reset). */
+    public void clearFailures(String email) {
+        failures.remove(key(email));
+        lockedUntil.remove(key(email));
+    }
+
+    public User login(String email, String password) {
+
+        if (email == null || password == null || isLockedOut(email)) {
+            return null;
+        }
+
+        User user = DataStore.findUserByEmail(email);
+
+        if (user != null && user.checkPassword(password)) {
+
+            if (user.getStatus() == AccountStatus.ACTIVE) {
+                failures.remove(key(email));
+                return user;
+            }
+
+            return null;
+        }
+
+        recordFailure(email);
+
         return null;
+    }
+
+    private void recordFailure(String email) {
+        String key = key(email);
+        int count = failures.merge(key, 1, Integer::sum);
+
+        if (count >= MAX_ATTEMPTS) {
+            lockedUntil.put(key, System.currentTimeMillis() + LOCK_MILLIS);
+        }
+    }
+
+    private String key(String email) {
+        return email == null ? "" : email.trim().toLowerCase();
     }
 }

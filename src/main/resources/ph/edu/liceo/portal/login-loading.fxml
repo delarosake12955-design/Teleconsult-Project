@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ph.edu.liceo.portal.controller.LoadingController"
+           stylesheets="@popup-theme.css"
+           styleClass="login-loading-scrim">
+
+    <StackPane fx:id="glassLayers"
+               prefWidth="430"
+               prefHeight="430"
+               maxWidth="430"
+               maxHeight="430">
+
+        <StackPane fx:id="layerOne"
+                   prefWidth="300"
+                   prefHeight="300"
+                   maxWidth="300"
+                   maxHeight="300"
+                   translateX="-45"
+                   translateY="-30"
+                   styleClass="loading-glass-one"/>
+
+        <StackPane fx:id="layerTwo"
+                   prefWidth="300"
+                   prefHeight="300"
+                   maxWidth="300"
+                   maxHeight="300"
+                   translateX="40"
+                   translateY="35"
+                   styleClass="loading-glass-two"/>
+
+    </StackPane>
+
+    <VBox alignment="CENTER"
+          spacing="14"
+          styleClass="login-loading-box">
+
+        <StackPane styleClass="login-loading-logo">
+
+            <Label text="+"
+                   styleClass="login-loading-plus"/>
+
+        </StackPane>
+
+        <Label text="TeleConsult"
+               styleClass="login-loading-title"/>
+
+        <Label fx:id="roleLabel"
+               text="PORTAL"
+               styleClass="login-loading-role"/>
+
+        <Label fx:id="greetingLabel"
+               text="Signing you in..."
+               styleClass="login-loading-greeting"/>
+
+        <ProgressIndicator progress="-1"
+                           styleClass="login-loading-progress"/>
+
+        <ProgressBar fx:id="stepBar"
+                     progress="0"
+                     styleClass="login-loading-bar"/>
+
+        <Label fx:id="statusLabel"
+               text="Verifying credentials..."
+               styleClass="login-loading-text"/>
+
+    </VBox>
+
+</StackPane>

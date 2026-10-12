@@ -1,0 +1,5 @@
+/* Verification requests: highlight a missing license number in red */
+
+.license-missing {
+    -fx-text-fill: #e11d2e;
+}

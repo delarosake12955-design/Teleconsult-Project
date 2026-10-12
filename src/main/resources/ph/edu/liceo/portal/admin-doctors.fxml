@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.liceo.portal.controller.DoctorController"
+            stylesheets="@admin-doctors.css, @teleconsult-theme.css">
+
+    <left>
+
+        <VBox prefWidth="235"
+              spacing="8"
+              styleClass="sidebar admin-page">
+
+            <padding>
+                <Insets top="30" right="20" bottom="30" left="20"/>
+            </padding>
+
+            <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+
+            <Label text="DOCTOR DIRECTORY"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Doctors"
+                        fx:id="doctorsButton"
+                        onAction="#handleDoctors"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+
+                <Button text="Appointments"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Medical Records"
+                        fx:id="recordsButton"
+                        onAction="#handleMedicalRecords"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Button text="Logout"
+                    fx:id="logoutButton"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    styleClass="logout-button"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="main-scroll">
+
+            <VBox spacing="25"
+                  styleClass="main-content">
+
+                <VBox spacing="7">
+
+                    <Label text="Find a Doctor"
+                           styleClass="page-title"/>
+
+                    <Label text="View available doctors and their specialties."
+                           styleClass="page-description"/>
+
+                </VBox>
+
+                <HBox spacing="12"
+                      styleClass="search-card">
+
+                    <TextField fx:id="searchField"
+                               promptText="Search by doctor name or specialty"
+                               HBox.hgrow="ALWAYS"
+                               styleClass="search-field"/>
+
+                    <Button text="Search"
+                            fx:id="searchButton"
+                            onAction="#handleSearch"
+                            styleClass="search-button"/>
+
+                </HBox>
+
+                <HBox spacing="16">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="5"
+                          styleClass="summary-card">
+
+                        <Label text="Available Doctors"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="doctorCountLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="5"
+                          styleClass="summary-card">
+
+                        <Label text="Specialties"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="specialtyCountLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <Label text="Available Doctors"
+                       styleClass="section-title"/>
+
+                <VBox fx:id="doctorList"
+                      spacing="14">
+
+                    <HBox spacing="18"
+                          styleClass="doctor-card">
+
+                        <VBox spacing="6"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label fx:id="doctorNameLabel"
+                                   text="Dr. Doctor Name"
+                                   styleClass="doctor-name"/>
+
+                            <Label fx:id="specialtyLabel"
+                                   text="General Physician"
+                                   styleClass="specialty-label"/>
+
+                            <Label fx:id="licenseLabel"
+                                   text="License No. —"
+                                   styleClass="license-label"/>
+
+                        </VBox>
+
+                        <Button text="View Profile"
+                                fx:id="viewProfileButton"
+                                onAction="#handleDoctorProfile"
+                                styleClass="profile-button"/>
+
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

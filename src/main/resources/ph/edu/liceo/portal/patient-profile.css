@@ -1,0 +1,182 @@
+/* Patient Profile — TeleConsult medical blue theme */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #EEF3FD;
+}
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #0D1534, #151F48);
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(13, 25, 62, 0.22), 18, 0.12, 5, 0);
+}
+.sidebar-logo {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+.portal-label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7182B2;
+    -fx-padding: 18 8 8 8;
+}
+.nav-button, .nav-button-active, .logout-button {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 13 15;
+    -fx-background-radius: 11;
+    -fx-border-radius: 11;
+    -fx-cursor: hand;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A9B5D8;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(65, 125, 246, 0.18);
+    -fx-text-fill: white;
+}
+.nav-button-active {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2868E5);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.28), 10, 0.12, 0, 3);
+}
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A9B5D8;
+}
+.logout-button:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-text-fill: white;
+}
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.main-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+.main-content {
+    -fx-background-color: transparent;
+    -fx-padding: 40 42 46 42;
+}
+.page-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111B45;
+}
+.page-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7886A8;
+}
+.profile-header {
+    -fx-background-color: #B6D0B8;
+    -fx-padding: 28;
+    -fx-background-radius: 24;
+    -fx-alignment: CENTER_LEFT;
+}
+.profile-avatar {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 100;
+    -fx-min-width: 120;
+    -fx-min-height: 120;
+    -fx-max-width: 120;
+    -fx-max-height: 120;
+}
+.avatar-text {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #536B91;
+}
+.profile-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #101A43;
+}
+.profile-role {
+    -fx-font-size: 12px;
+    -fx-text-fill: #5E7196;
+}
+.profile-email {
+    -fx-font-size: 13px;
+    -fx-text-fill: #536B91;
+}
+.information-card, .account-card {
+    -fx-background-color: rgba(255,255,255,0.97);
+    -fx-padding: 24;
+    -fx-background-radius: 22;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 22;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(31,55,100,0.08), 16, 0.08, 0, 5);
+}
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111B45;
+}
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #344266;
+}
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D5DFEF;
+    -fx-border-width: 1.2;
+    -fx-border-radius: 11;
+    -fx-background-radius: 11;
+    -fx-padding: 12 14;
+    -fx-font-size: 13px;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA7C1;
+}
+.text-field:focused {
+    -fx-border-color: #3478F6;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.13), 8, 0.1, 0, 2);
+}
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2869E5);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 13 22;
+    -fx-background-radius: 11;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.25), 10, 0.1, 0, 3);
+}
+.primary-button:hover {
+    -fx-background-color: #245FD5;
+}
+.message {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C23B4A;
+}
+.account-card {
+    -fx-padding: 24;
+}
+.account-item {
+    -fx-background-color: #F4F7FD;
+    -fx-padding: 16;
+    -fx-background-radius: 13;
+    -fx-border-color: #E4EAF5;
+    -fx-border-radius: 13;
+}
+.account-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7885A7;
+}
+.account-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #101A43;
+}
+.status-label {
+    -fx-background-color: #E3F7EB;
+    -fx-text-fill: #18733A;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 10;
+    -fx-background-radius: 14;
+}

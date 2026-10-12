@@ -1,0 +1,716 @@
+.root {
+    -fx-background-color: #F5F8FF;
+    -fx-font-family: "Arial";
+}
+
+.sidebar {
+    -fx-background-color: linear-gradient(
+            to bottom,
+            #101A43,
+            #172553
+    );
+}
+
+.sidebar-logo {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.portal-label {
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7181AA;
+    -fx-padding: 18 8 8 8;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #AEB9D4;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15;
+    -fx-background-radius: 11;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: white;
+}
+
+.nav-button-active {
+    -fx-background-color: rgba(52, 120, 246, 0.22);
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15;
+    -fx-background-radius: 11;
+    -fx-border-color: rgba(91, 145, 255, 0.22);
+    -fx-border-radius: 11;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.nav-button-active:hover {
+    -fx-background-color: rgba(52, 120, 246, 0.30);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #AEB9D4;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15;
+    -fx-background-radius: 11;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: white;
+}
+
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.main-scroll > .viewport {
+    -fx-background-color: #F5F8FF;
+}
+
+.main-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+}
+
+.main-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.main-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(52, 120, 246, 0.30);
+    -fx-background-radius: 10;
+}
+
+.main-scroll .corner {
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-padding: 38 42 45 42;
+}
+
+.back-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-text-fill: #2869E5;
+}
+
+.profile-header {
+    -fx-background-color: rgba(255, 255, 255, 0.94);
+    -fx-background-radius: 25;
+    -fx-border-color: #DEE6F3;
+    -fx-border-radius: 25;
+    -fx-border-width: 1;
+    -fx-padding: 28;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(40, 62, 112, 0.08),
+            18,
+            0.10,
+            0,
+            6
+    );
+}
+
+.doctor-avatar {
+    -fx-background-color: rgba(52, 120, 246, 0.10);
+    -fx-background-radius: 50%;
+    -fx-min-width: 105;
+    -fx-min-height: 105;
+    -fx-max-width: 105;
+    -fx-max-height: 105;
+}
+
+.avatar-text {
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.doctor-name {
+    -fx-font-size: 27px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #101A43;
+}
+
+.specialty-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3478F6;
+}
+
+.license-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #7885A7;
+}
+
+.availability-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3478F6;
+}
+
+.information-card,
+.appointment-card,
+.schedule-card {
+    -fx-background-color: rgba(255, 255, 255, 0.94);
+    -fx-background-radius: 21;
+    -fx-border-color: #DEE6F3;
+    -fx-border-radius: 21;
+    -fx-border-width: 1;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(40, 62, 112, 0.06),
+            15,
+            0.08,
+            0,
+            5
+    );
+}
+
+.information-card:hover,
+.appointment-card:hover,
+.schedule-card:hover {
+    -fx-border-color: #BFD3F7;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #101A43;
+}
+
+.field-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8995B0;
+    -fx-min-width: 110px;
+}
+
+.field-value {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #101A43;
+}
+
+.description {
+    -fx-font-size: 11px;
+    -fx-text-fill: #7885A7;
+    -fx-line-spacing: 2px;
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(
+            to right,
+            #3478F6,
+            #2869E5
+    );
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 19;
+    -fx-background-radius: 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(52, 120, 246, 0.28),
+            14,
+            0.15,
+            0,
+            5
+    );
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(
+            to right,
+            #4386FB,
+            #3478F6
+    );
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(52, 120, 246, 0.38),
+            18,
+            0.18,
+            0,
+            6
+    );
+}
+
+.primary-button:pressed {
+    -fx-background-color: #2768E7;
+}
+
+.schedule-item {
+    -fx-background-color: #F5F8FD;
+    -fx-padding: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: #E4EAF4;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+}
+
+.schedule-title {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8995B0;
+}
+
+.schedule-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #101A43;
+}
+
+.schedule-item:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #C9DAF7;
+}
+/* ============================================================
+   TELECONSULT HOMEPAGE DESIGN SYSTEM
+   Shared visual language for dashboard and inner pages.
+============================================================ */
+
+.root, .page {
+    -fx-background-color: linear-gradient(to bottom right, #F5F8FF, #E9EFFC);
+    -fx-font-family: "Arial";
+}
+
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #0C1330, #151E48);
+    -fx-border-color: transparent;
+    -fx-padding: 28 18 24 18;
+    -fx-effect: dropshadow(gaussian, rgba(15,29,72,0.25), 24, 0.18, 6, 0);
+}
+
+.brand-container {
+    -fx-padding: 4 4 24 4;
+}
+
+.brand-icon {
+    -fx-background-color: linear-gradient(to bottom right, #4B8CFF, #2764DC);
+    -fx-background-radius: 14;
+    -fx-min-width: 46;
+    -fx-min-height: 46;
+    -fx-max-width: 46;
+    -fx-max-height: 46;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.40), 14, 0.2, 0, 4);
+}
+
+.brand-plus {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-logo {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #7180AE;
+    -fx-font-size: 8px;
+    -fx-font-weight: bold;
+}
+
+.portal-label, .account-label {
+    -fx-text-fill: #65719D;
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 8 8 8;
+}
+
+.nav-button, .nav-button-active {
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9DA9CE;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(76,133,245,0.15);
+    -fx-text-fill: white;
+    -fx-translate-x: 2px;
+}
+
+.nav-button-active {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2869E5);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.25), 10, 0.1, 0, 3);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8290B5;
+    -fx-background-radius: 10;
+    -fx-padding: 12 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-text-fill: white;
+}
+
+.content-host {
+    -fx-background-color: transparent;
+}
+
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.main-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.main-content {
+    -fx-background-color: transparent;
+    -fx-padding: 38 42 45 42;
+}
+
+.greeting {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 13px;
+}
+
+.description, .section-subtitle, .stat-description, .quick-description,
+.request-details, .appointment-details, .verification-text {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 12px;
+}
+
+.doctor-name, .patient-name, .nurse-name, .secretary-name, .admin-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 31px;
+    -fx-font-weight: bold;
+}
+
+.profile-mini-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+    -fx-padding: 12 18;
+    -fx-effect: dropshadow(gaussian, rgba(31,55,100,0.07), 14, 0.08, 0, 4);
+}
+
+.profile-icon {
+    -fx-background-color: #EAF1FF;
+    -fx-background-radius: 12;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+.profile-plus {
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.profile-name {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.profile-role {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 10px;
+}
+
+.stat-card, .request-card, .appointment-card, .quick-card,
+.verification-card, .schedule-card, .welcome-card, .status-card,
+.consultation-card, .record-card, .history-card, .information-card,
+.account-card, .details-card {
+    -fx-background-color: rgba(255,255,255,0.96);
+    -fx-background-radius: 18;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 18;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(31,55,100,0.08), 16, 0.08, 0, 5);
+}
+
+.stat-card {
+    -fx-background-color: #EAF1FF;
+}
+
+.stat-title, .card-title {
+    -fx-text-fill: #7885A7;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.stat-number {
+    -fx-text-fill: #3478F6;
+    -fx-font-size: 29px;
+    -fx-font-weight: bold;
+}
+
+.section-title, .quick-title, .welcome-title {
+    -fx-text-fill: #101A43;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-font-size: 19px;
+}
+
+.quick-title {
+    -fx-font-size: 16px;
+}
+
+.welcome-title {
+    -fx-font-size: 26px;
+}
+
+.primary-button, .card-button {
+    -fx-background-color: linear-gradient(to right, #3478F6, #2869E5);
+    -fx-background-radius: 11;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover, .card-button:hover {
+    -fx-background-color: #2869E5;
+}
+
+.secondary-button, .link-button, .profile-button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 11;
+    -fx-border-color: #AFC5F7;
+    -fx-border-radius: 11;
+    -fx-text-fill: #2164DF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 15;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover, .link-button:hover, .profile-button:hover {
+    -fx-background-color: #EDF3FF;
+}
+
+.text-field, .text-area, .combo-box, .date-picker, .search-field,
+.filter-combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #D5DFEF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 9 12;
+    -fx-text-fill: #101A43;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused,
+.date-picker:focused, .search-field:focused {
+    -fx-border-color: #3478F6;
+    -fx-effect: dropshadow(gaussian, rgba(52,120,246,0.14), 8, 0.1, 0, 2);
+}
+
+.request-icon, .quick-icon, .status-icon {
+    -fx-background-color: #EAF1FF;
+    -fx-background-radius: 12;
+}
+
+.request-plus, .quick-icon-text, .status-check {
+    -fx-text-fill: #3478F6;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-background-color: #E6F6EC;
+    -fx-text-fill: #18733A;
+    -fx-background-radius: 20;
+    -fx-padding: 6 10;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.main-content .table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 12;
+}
+
+.main-content .column-header-background,
+.main-content .column-header {
+    -fx-background-color: #EEF4FF;
+}
+
+.main-content .column-header .label {
+    -fx-text-fill: #101A43;
+    -fx-font-weight: bold;
+}
+
+.main-content .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #EEF2F8 transparent;
+}
+
+.main-content .table-row-cell:hover {
+    -fx-background-color: #F5F8FF;
+}
+
+
+
+/* ============================================================
+   TELECONSULT SHARED DESIGN OVERRIDES
+   Consistent palette: navy, medical blue, cool white, soft slate.
+   Page-specific rules above remain in place; these normalize
+   common controls, cards, tables, and typography.
+   ============================================================ */
+
+.root, .page, .main-content, .content-area {
+    -fx-font-family: "Arial";
+}
+
+.page-title, .section-title, .card-title, .panel-title {
+    -fx-text-fill: #101A43;
+}
+
+.page-description, .section-description, .table-description,
+.helper-text, .subtitle, .field-hint {
+    -fx-text-fill: #7885A7;
+}
+
+.summary-card, .form-card, .table-card, .calendar-card,
+.booking-options-card, .content-card, .stat-card, .panel-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+}
+
+.button {
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-cursor: hand;
+}
+
+.button:focused, .text-field:focused, .password-field:focused,
+.text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #3478F6;
+    -fx-border-width: 1.2;
+}
+
+.text-field, .password-field, .text-area, .combo-box, .date-picker {
+    -fx-font-family: "Arial";
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6C0;
+    -fx-border-color: #D5DFEF;
+    -fx-border-radius: 9;
+    -fx-background-radius: 9;
+}
+
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 12;
+    -fx-padding: 2;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F0F4FC;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #DCE5F4 transparent;
+    -fx-size: 38px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #344266;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #EDF1F8 transparent;
+    -fx-cell-size: 40px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFBFE;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #E5EEFF;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #101A43;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #C8D3E8;
+    -fx-background-radius: 8;
+}
+
+.separator .line {
+    -fx-border-color: #E3EAF5;
+}
+
+.check-box, .radio-button {
+    -fx-text-fill: #344266;
+}
+
+.tooltip {
+    -fx-background-color: #101A43;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 6;
+    -fx-font-size: 11px;
+}
+

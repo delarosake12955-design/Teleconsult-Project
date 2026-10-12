@@ -1,14 +1,316 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.liceo.portal.controller.NurseDashboardController"
+            stylesheets="@nurse-dashboard.css, @teleconsult-theme.css, @notifications.css">
 
-</AnchorPane>
+    <left>
+
+        <VBox prefWidth="235"
+              spacing="8"
+              styleClass="sidebar">
+
+            <padding>
+                <Insets top="30"
+                        right="20"
+                        bottom="30"
+                        left="20"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="10"
+                  styleClass="brand-container">
+
+                <ImageView fitWidth="46" preserveRatio="true" smooth="true">
+                    <image>
+                        <Image url="@register-logo.png"/>
+                    </image>
+                </ImageView>
+
+                <VBox spacing="1">
+                    <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+                    <Label text="M E D I C A L   S Y S T E M" styleClass="sidebar-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <Label text="NURSE PORTAL"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+                <StackPane styleClass="notification-row">
+
+                    <Button text="Notifications"
+                            fx:id="notificationsButton"
+                            onAction="#handleNotifications"
+                            maxWidth="Infinity"
+                            styleClass="nav-button"/>
+
+                    <Label fx:id="notificationBadge"
+                           text="0"
+                           visible="false"
+                           managed="false"
+                           mouseTransparent="true"
+                           styleClass="notification-badge"
+                           StackPane.alignment="CENTER_RIGHT"/>
+
+                </StackPane>
+
+
+                <Button text="Patients"
+                        fx:id="patientsButton"
+                        onAction="#handlePatients"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Review Requests"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Records &amp; Vitals"
+                        fx:id="recordsButton"
+                        onAction="#handleMedicalRecords"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Consultations"
+                        fx:id="consultationsButton"
+                        onAction="#handleConsultations"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Button text="Logout"
+                    fx:id="logoutButton"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    styleClass="logout-button"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <StackPane fx:id="contentHost" styleClass="content-host">
+
+            <ScrollPane fx:id="dashboardContent" fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="main-scroll">
+
+            <VBox spacing="25"
+                  styleClass="main-content">
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="6"
+                          HBox.hgrow="ALWAYS">
+
+                        <Label text="Good day,"
+                               styleClass="greeting"/>
+
+                        <Label fx:id="nurseNameLabel"
+                               text="Nurse"
+                               styleClass="nurse-name"/>
+
+                        <Label text="Assist with patient care and keep health information organized."
+                               styleClass="description"/>
+
+                    </VBox>
+
+                    <VBox alignment="CENTER_RIGHT"
+                          spacing="4"
+                          styleClass="profile-mini-card">
+
+                        <Label fx:id="profileNameLabel"
+                               text="Nurse"
+                               styleClass="profile-name"/>
+
+                        <Label fx:id="departmentLabel"
+                               text="Department"
+                               styleClass="profile-role"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox spacing="18">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="15"
+                          styleClass="welcome-card">
+
+                        <Label text="Patient Care"
+                               styleClass="welcome-title"/>
+
+                        <Label text="Access patient information, record vital signs, and assist with consultation management."
+                               wrapText="true"
+                               styleClass="welcome-description"/>
+
+                        <Button text="View Patients"
+                                fx:id="viewPatientsButton"
+                                onAction="#handlePatients"
+                                styleClass="primary-button"/>
+
+                    </VBox>
+
+                    <VBox prefWidth="280"
+                          spacing="14"
+                          styleClass="vitals-card">
+
+                        <Label text="Vital Signs"
+                               styleClass="card-title"/>
+
+                        <Label text="Record and review patient vital signs."
+                               wrapText="true"
+                               styleClass="card-description"/>
+
+                        <Button text="Manage Vital Signs"
+                                fx:id="manageVitalsButton"
+                                onAction="#handleVitalSigns"
+                                styleClass="secondary-button"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <Label text="Quick Access"
+                       styleClass="section-title"/>
+
+                <HBox spacing="16">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="8"
+                          styleClass="quick-card">
+
+                        <Label text="Patients"
+                               styleClass="quick-title"/>
+
+                        <Label text="View patients and their available information."
+                               wrapText="true"
+                               styleClass="quick-description"/>
+
+                        <Button text="View Patients"
+                                fx:id="quickPatientsButton"
+                                onAction="#handlePatients"
+                                styleClass="card-button"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="8"
+                          styleClass="quick-card">
+
+                        <Label text="Medical Records"
+                               styleClass="quick-title"/>
+
+                        <Label text="Access available patient medical records."
+                               wrapText="true"
+                               styleClass="quick-description"/>
+
+                        <Button text="View Records"
+                                fx:id="quickRecordsButton"
+                                onAction="#handleMedicalRecords"
+                                styleClass="card-button"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="8"
+                          styleClass="quick-card">
+
+                        <Label text="Consultations"
+                               styleClass="quick-title"/>
+
+                        <Label text="Assist with consultation requests and care."
+                               wrapText="true"
+                               styleClass="quick-description"/>
+
+                        <Button text="View Consultations"
+                                fx:id="quickConsultationsButton"
+                                onAction="#handleConsultations"
+                                styleClass="card-button"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <VBox spacing="14"
+                      styleClass="activity-card">
+
+                    <HBox alignment="CENTER_LEFT">
+
+                        <Label text="Recent Patient Activity"
+                               styleClass="section-title"
+                               HBox.hgrow="ALWAYS"/>
+
+                        <Button text="View All"
+                                fx:id="viewAllPatientsButton"
+                                onAction="#handlePatients"
+                                styleClass="link-button"/>
+
+                    </HBox>
+
+                    <HBox spacing="15"
+                          styleClass="activity-row">
+
+                        <VBox spacing="4"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label fx:id="recentPatientLabel"
+                                   text="No recent patient activity"
+                                   styleClass="patient-name"/>
+
+                            <Label fx:id="recentActivityLabel"
+                                   text=""
+                                   styleClass="activity-description"/>
+
+                        </VBox>
+
+                        <Label fx:id="recentActivityStatusLabel"
+                               text=""
+                               styleClass="status-label"/>
+
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+
+            </ScrollPane>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>

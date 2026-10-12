@@ -1,0 +1,573 @@
+/* ==========================================================
+   TeleConsult pop-ups: notification toasts, login loading
+   screen and registration dialogs. Same palette as the rest
+   of the app (navy #101A43, blue #3478F6, green/amber/red
+   for success/warning/alert).
+   ========================================================== */
+
+/* ---------------------------------------------------------
+   Overlay host (holds the page, the dialogs and the toasts)
+   --------------------------------------------------------- */
+.overlay-host {
+    -fx-background-color: transparent;
+}
+
+/* ---------------------------------------------------------
+   Notification toast
+   --------------------------------------------------------- */
+.toast-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-width: 1 1 1 5;
+    -fx-border-color: #CFE0FF #CFE0FF #CFE0FF #3478f6;
+    -fx-padding: 14 14 10 16;
+    -fx-spacing: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.30), 26, 0.15, 0, 8);
+}
+
+.toast-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.42), 30, 0.18, 0, 10);
+}
+
+.toast-info    { -fx-border-color: #CFE0FF #CFE0FF #CFE0FF #3478f6; }
+.toast-success { -fx-border-color: #CFEFDC #CFEFDC #CFEFDC #16a34a; }
+.toast-warning { -fx-border-color: #FBE3B3 #FBE3B3 #FBE3B3 #f59e0b; }
+.toast-alert   { -fx-border-color: #FAD0D4 #FAD0D4 #FAD0D4 #e11d2e; }
+
+/* ---- yellow bell (swings and rings when the toast appears) ---- */
+.toast-bell-pane {
+    -fx-background-color: radial-gradient(center 50% 50%, radius 62%,
+            rgba(255, 214, 102, 0.55) 0%, rgba(255, 214, 102, 0.0) 100%);
+    -fx-background-radius: 26;
+}
+
+.toast-bell-body {
+    -fx-fill: linear-gradient(from 20% 0% to 80% 100%, #fff0a0 0%, #ffcc1f 52%, #f59e0b 100%);
+    -fx-stroke: #d98200;
+    -fx-stroke-width: 0.55;
+    -fx-stroke-line-join: round;
+    -fx-effect: dropshadow(gaussian, rgba(245, 158, 11, 0.70), 4, 0.25, 0, 1);
+}
+
+.toast-bell-clapper {
+    -fx-fill: linear-gradient(to bottom, #ffc21a, #d98200);
+    -fx-stroke: #c67700;
+    -fx-stroke-width: 0.4;
+}
+
+.toast-bell-shine {
+    -fx-fill: transparent;
+    -fx-stroke: rgba(255, 255, 255, 0.90);
+    -fx-stroke-width: 0.9;
+    -fx-stroke-line-cap: round;
+}
+
+.toast-wave {
+    -fx-fill: transparent;
+    -fx-stroke: #f5a800;
+    -fx-stroke-width: 0.95;
+    -fx-stroke-line-cap: round;
+}
+
+/* type badge on the bell's corner */
+.toast-icon-circle {
+    -fx-background-radius: 10;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-background-color: #3478f6;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.28), 4, 0.2, 0, 1);
+}
+
+.toast-icon {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.toast-success .toast-icon-circle { -fx-background-color: #16a34a; }
+.toast-warning .toast-icon-circle { -fx-background-color: #f59e0b; }
+.toast-alert .toast-icon-circle   { -fx-background-color: #e11d2e; }
+.toast-alert .toast-icon          { -fx-text-fill: #e11d2e; }
+
+.toast-title {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.toast-time {
+    -fx-text-fill: #8A97B5;
+    -fx-font-size: 11px;
+}
+
+.toast-message {
+    -fx-text-fill: #4A5878;
+    -fx-font-size: 13px;
+}
+
+.toast-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8A97B5;
+    -fx-font-size: 12px;
+    -fx-padding: 2 6 2 6;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.toast-close:hover {
+    -fx-background-color: #EEF3FF;
+    -fx-text-fill: #101A43;
+}
+
+/* thin bar that counts down the time left before the toast leaves */
+.toast-timer {
+    -fx-pref-height: 4;
+    -fx-min-height: 4;
+    -fx-max-height: 4;
+}
+
+.toast-timer > .track {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.toast-timer > .bar {
+    -fx-background-color: #3478f6;
+    -fx-background-insets: 0;
+    -fx-background-radius: 2;
+    -fx-padding: 0;
+}
+
+.toast-success .toast-timer > .bar { -fx-background-color: #16a34a; }
+.toast-warning .toast-timer > .bar { -fx-background-color: #f59e0b; }
+.toast-alert .toast-timer > .bar   { -fx-background-color: #e11d2e; }
+
+/* ---------------------------------------------------------
+   Sign-in loading screen (one look, role badge changes)
+   --------------------------------------------------------- */
+.login-loading-scrim {
+    -fx-background-color: linear-gradient(to bottom right, #0c1330, #151e48);
+}
+
+.login-loading-box {
+    -fx-alignment: CENTER;
+}
+
+.loading-glass-one {
+    -fx-background-color: rgba(75, 140, 255, 0.12);
+    -fx-background-radius: 28;
+}
+
+.loading-glass-two {
+    -fx-background-color: rgba(75, 140, 255, 0.20);
+    -fx-background-radius: 28;
+}
+
+.login-loading-logo {
+    -fx-background-color: linear-gradient(to bottom right, #4b8cff, #2764dc);
+    -fx-background-radius: 22;
+    -fx-min-width: 78;
+    -fx-min-height: 78;
+    -fx-max-width: 78;
+    -fx-max-height: 78;
+    -fx-effect: dropshadow(gaussian, rgba(75, 140, 255, 0.55), 30, 0.25, 0, 8);
+}
+
+.login-loading-plus {
+    -fx-text-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+}
+
+.login-loading-title {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.login-loading-role {
+    -fx-text-fill: #9ec3ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 16 5 16;
+    -fx-background-radius: 20;
+    -fx-background-color: rgba(75, 140, 255, 0.16);
+    -fx-border-color: rgba(75, 140, 255, 0.45);
+    -fx-border-radius: 20;
+}
+
+.loading-role-patient   { -fx-text-fill: #9ec3ff; }
+.loading-role-doctor    { -fx-text-fill: #5eead4; -fx-background-color: rgba(45, 212, 191, 0.14); -fx-border-color: rgba(45, 212, 191, 0.45); }
+.loading-role-nurse     { -fx-text-fill: #f9a8d4; -fx-background-color: rgba(244, 114, 182, 0.14); -fx-border-color: rgba(244, 114, 182, 0.45); }
+.loading-role-secretary { -fx-text-fill: #fcd34d; -fx-background-color: rgba(251, 191, 36, 0.14); -fx-border-color: rgba(251, 191, 36, 0.45); }
+.loading-role-admin     { -fx-text-fill: #c4b5fd; -fx-background-color: rgba(167, 139, 250, 0.14); -fx-border-color: rgba(167, 139, 250, 0.45); }
+
+.login-loading-greeting {
+    -fx-text-fill: #E4ECFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.login-loading-progress {
+    -fx-pref-width: 42;
+    -fx-pref-height: 42;
+}
+
+.login-loading-progress .percentage {
+    -fx-fill: transparent;
+}
+
+.login-loading-progress .track {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+}
+
+.login-loading-progress .bar {
+    -fx-background-color: #4b8cff;
+}
+
+.login-loading-bar {
+    -fx-pref-width: 260;
+    -fx-pref-height: 5;
+    -fx-min-height: 5;
+    -fx-max-height: 5;
+}
+
+.login-loading-bar > .track {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-insets: 0;
+    -fx-background-radius: 3;
+}
+
+.login-loading-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #4b8cff, #7db0ff);
+    -fx-background-insets: 0;
+    -fx-background-radius: 3;
+    -fx-padding: 0;
+}
+
+.login-loading-text {
+    -fx-text-fill: #9da9ce;
+    -fx-font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   Dialog scrim + registration card
+   --------------------------------------------------------- */
+.dialog-scrim {
+    -fx-background-color: rgba(12, 19, 48, 0.58);
+}
+
+.popup-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 24;
+    -fx-padding: 34 38 30 38;
+    -fx-alignment: TOP_CENTER;
+    -fx-effect: dropshadow(gaussian, rgba(7, 12, 36, 0.45), 40, 0.2, 0, 14);
+}
+
+.popup-icon-circle {
+    -fx-background-radius: 38;
+    -fx-min-width: 76;
+    -fx-min-height: 76;
+    -fx-max-width: 76;
+    -fx-max-height: 76;
+}
+
+.popup-icon-success {
+    -fx-background-color: linear-gradient(to bottom right, #34d27b, #16a34a);
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.45), 22, 0.2, 0, 6);
+}
+
+.popup-icon-pending {
+    -fx-background-color: linear-gradient(to bottom right, #fbbf24, #f59e0b);
+    -fx-effect: dropshadow(gaussian, rgba(245, 158, 11, 0.45), 22, 0.2, 0, 6);
+}
+
+.popup-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.popup-title {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.popup-message {
+    -fx-text-fill: #4A5878;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 3;
+}
+
+.popup-steps {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 16;
+    -fx-padding: 16 18 16 18;
+}
+
+.popup-step-number {
+    -fx-background-radius: 12;
+    -fx-min-width: 24;
+    -fx-min-height: 24;
+    -fx-max-width: 24;
+    -fx-max-height: 24;
+    -fx-background-color: #DCE5F4;
+}
+
+.popup-step-number-text {
+    -fx-text-fill: #62708F;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.popup-step-done .popup-step-number    { -fx-background-color: #16a34a; }
+.popup-step-done .popup-step-number-text { -fx-text-fill: white; }
+.popup-step-current .popup-step-number { -fx-background-color: #f59e0b; }
+.popup-step-current .popup-step-number-text { -fx-text-fill: white; }
+
+.popup-step-text {
+    -fx-text-fill: #4A5878;
+    -fx-font-size: 13px;
+}
+
+.popup-step-done .popup-step-text    { -fx-text-fill: #16a34a; -fx-font-weight: bold; }
+.popup-step-current .popup-step-text { -fx-text-fill: #101A43; -fx-font-weight: bold; }
+
+.popup-primary-button {
+    -fx-background-color: linear-gradient(to bottom, #4b8cff, #2764dc);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-padding: 11 28 11 28;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(39, 100, 220, 0.35), 14, 0.2, 0, 4);
+}
+
+.popup-primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5b97ff, #2f6de6);
+}
+
+.popup-secondary-button {
+    -fx-background-color: #EDF3FF;
+    -fx-text-fill: #1d4ed8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-padding: 11 24 11 24;
+    -fx-cursor: hand;
+}
+
+.popup-secondary-button:hover {
+    -fx-background-color: #DCE9FF;
+}
+
+
+/* ---------------------------------------------------------
+   JavaFX dialogs and alerts (vital signs form, notices)
+   --------------------------------------------------------- */
+.tc-dialog {
+    -fx-background-color: white;
+    -fx-font-family: "Arial";
+}
+
+.tc-dialog .header-panel {
+    -fx-background-color: #EEF4FF;
+    -fx-padding: 18 24;
+    -fx-border-color: transparent transparent #DCE5F4 transparent;
+}
+
+.tc-dialog .header-panel .label {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.tc-dialog .content.label {
+    -fx-text-fill: #344266;
+    -fx-font-size: 13px;
+    -fx-padding: 8 24;
+}
+
+.tc-dialog .grid-pane .label, .tc-dialog .content .label {
+    -fx-text-fill: #344266;
+    -fx-font-size: 13px;
+}
+
+.tc-dialog .text-field {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 10;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 10;
+    -fx-padding: 9 12;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6C0;
+}
+
+.tc-dialog .text-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3478F6;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.25), 8, 0.1, 0, 0);
+}
+
+.tc-dialog .button-bar {
+    -fx-padding: 4 20 18 20;
+}
+
+.tc-dialog .button-bar .container {
+    -fx-background-color: transparent;
+}
+
+.tc-dialog .button {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 10;
+    -fx-text-fill: #2164DF;
+    -fx-font-weight: bold;
+    -fx-padding: 9 24;
+    -fx-cursor: hand;
+}
+
+.tc-dialog .button:hover {
+    -fx-background-color: #EEF4FF;
+}
+
+.tc-dialog .button:default {
+    -fx-background-color: #3478F6;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+
+.tc-dialog .button:default:hover {
+    -fx-background-color: #2869E5;
+}
+
+
+/* ==========================================================
+   Logout confirmation, change password, message pop-up
+   (same card look as the registration pop-up)
+   ========================================================== */
+
+.popup-icon-danger {
+    -fx-background-color: linear-gradient(to bottom right, #fb7185, #e11d2e);
+    -fx-effect: dropshadow(gaussian, rgba(225, 29, 46, 0.45), 22, 0.2, 0, 6);
+}
+
+.popup-icon-info {
+    -fx-background-color: linear-gradient(to bottom right, #4b8cff, #2764dc);
+    -fx-effect: dropshadow(gaussian, rgba(39, 100, 220, 0.45), 22, 0.2, 0, 6);
+}
+
+/* drawn glyphs (white shapes, scaled to the Region size) */
+.popup-glyph {
+    -fx-background-color: white;
+    -fx-scale-shape: true;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-pref-width: 36;
+    -fx-pref-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+.popup-glyph-logout { -fx-shape: "M6 5 L22 5 L22 10 L11 10 L11 30 L22 30 L22 35 L6 35 Z M15 17.5 L26.5 17.5 L26.5 11 L38 20 L26.5 29 L26.5 22.5 L15 22.5 Z"; }
+.popup-glyph-lock   { -fx-shape: "M12 18 L12 12 C12 7.6 15.6 4 20 4 C24.4 4 28 7.6 28 12 L28 18 L24 18 L24 12 C24 9.8 22.2 8 20 8 C17.8 8 16 9.8 16 12 L16 18 Z M10.6 17 L29.4 17 C31.39 17 33 18.61 33 20.6 L33 33.4 C33 35.39 31.39 37 29.4 37 L10.6 37 C8.61 37 7 35.39 7 33.4 L7 20.6 C7 18.61 8.61 17 10.6 17 Z M22.7 25.6 C22.7 24.11 21.49 22.9 20 22.9 C18.51 22.9 17.3 24.11 17.3 25.6 C17.3 27.09 18.51 28.3 20 28.3 C21.49 28.3 22.7 27.09 22.7 25.6 Z M18.9 31.5 L21.1 31.5 L21.1 26 L18.9 26 Z"; }
+
+.popup-user-chip {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 20;
+    -fx-border-color: #DCE5F4;
+    -fx-border-radius: 20;
+    -fx-padding: 7 16 7 16;
+}
+
+.popup-user-chip-label {
+    -fx-text-fill: #101A43;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.popup-danger-button {
+    -fx-background-color: linear-gradient(to bottom, #f0566a, #d6162a);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-padding: 11 28 11 28;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(214, 22, 42, 0.35), 14, 0.2, 0, 4);
+}
+
+.popup-danger-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #f76477, #e11d2e);
+}
+
+.popup-hint {
+    -fx-text-fill: #8A97B5;
+    -fx-font-size: 11px;
+}
+
+.popup-key {
+    -fx-background-color: #EEF3FF;
+    -fx-text-fill: #3a4a78;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-color: #CFDAF0;
+    -fx-border-radius: 6;
+    -fx-border-width: 1 1 2 1;
+    -fx-padding: 2 7 2 7;
+}
+
+/* form fields inside a pop-up */
+.popup-field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #526184;
+}
+
+.popup-card .popup-field {
+    -fx-background-color: #F5F8FD;
+    -fx-background-radius: 11;
+    -fx-border-color: #DCE4F2;
+    -fx-border-radius: 11;
+    -fx-border-width: 1;
+    -fx-padding: 11 14 11 14;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6C2;
+}
+
+.popup-card .popup-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3478f6;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.16), 8, 0.1, 0, 2);
+}
+
+.popup-check {
+    -fx-font-size: 11px;
+    -fx-text-fill: #7885A7;
+    -fx-cursor: hand;
+}
+
+.popup-form-message {
+    -fx-font-size: 11px;
+    -fx-text-fill: #C25C67;
+    -fx-min-height: 16;
+}
+
+.popup-rules {
+    -fx-text-fill: #8A97B5;
+    -fx-font-size: 10px;
+}

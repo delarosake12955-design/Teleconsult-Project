@@ -1,0 +1,80 @@
+/*
+ * Extras for the four forgot-password pages (loaded after login-theme.css and login-<role>.css).
+ */
+
+.login-page .reset-icon {
+    -fx-background-color: -role-soft;
+    -fx-background-radius: 18;
+    -fx-border-color: -role-main;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-min-width: 50; -fx-min-height: 50; -fx-max-width: 50; -fx-max-height: 50;
+}
+
+.login-page .reset-glyph {
+    -fx-fill: -role-main;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.login-page .step-num {
+    -fx-background-color: rgba(255, 255, 255, 0.24);
+    -fx-background-radius: 18;
+    -fx-min-width: 34; -fx-min-height: 34; -fx-max-width: 34; -fx-max-height: 34;
+}
+
+.login-page .step-num-text {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.login-page .field-hint {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8A97B5;
+}
+
+.login-page .title {
+    -fx-font-size: 27px;
+}
+
+/* date picker (patient page) matches the other inputs */
+.login-page .date-picker {
+    -fx-background-color: #F5F8FD;
+    -fx-background-radius: 14;
+    -fx-border-color: #DCE4F2;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+}
+
+.login-page .date-picker:hover {
+    -fx-border-color: #C4D3EF;
+}
+
+.login-page .date-picker:focused {
+    -fx-background-color: white;
+    -fx-border-color: -role-main;
+    -fx-border-width: 1.5;
+}
+
+.login-page .date-picker > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 12 4 12 16;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6BF;
+}
+
+.login-page .date-picker > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0 14 14 0;
+}
+
+.login-page .date-picker > .arrow-button:hover {
+    -fx-background-color: -role-soft;
+}
+
+.login-page .message-ok {
+    -fx-text-fill: #16A34A;
+}

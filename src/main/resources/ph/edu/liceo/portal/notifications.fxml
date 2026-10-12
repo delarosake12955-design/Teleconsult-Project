@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ph.edu.liceo.portal.controller.NotificationController"
+      stylesheets="@notifications.css"
+      styleClass="notifications-page"
+      spacing="20">
+
+    <HBox alignment="CENTER_LEFT"
+          spacing="14"
+          styleClass="notifications-header">
+
+        <VBox spacing="4"
+              HBox.hgrow="ALWAYS">
+
+            <Label text="Notifications"
+                   styleClass="notifications-title"/>
+
+            <Label fx:id="summaryLabel"
+                   text="Loading..."
+                   styleClass="notifications-subtitle"/>
+
+        </VBox>
+
+        <Button fx:id="soundButton"
+                text="Sound: On"
+                onAction="#handleToggleSound"
+                styleClass="notifications-secondary-button"/>
+
+        <Button fx:id="markAllButton"
+                text="Mark all as read"
+                onAction="#handleMarkAllRead"
+                styleClass="notifications-secondary-button"/>
+
+        <Button fx:id="clearButton"
+                text="Clear all"
+                onAction="#handleClearAll"
+                styleClass="notifications-danger-button"/>
+
+    </HBox>
+
+    <ScrollPane fitToWidth="true"
+                hbarPolicy="NEVER"
+                styleClass="notifications-scroll"
+                VBox.vgrow="ALWAYS">
+
+        <VBox fx:id="notificationList"
+              spacing="12"
+              styleClass="notifications-list"/>
+
+    </ScrollPane>
+
+</VBox>

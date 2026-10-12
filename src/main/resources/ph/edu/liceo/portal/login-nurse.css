@@ -1,0 +1,39 @@
+/*
+ * Nurse sign-in: colour palette + the small touches that make this page its own.
+ * Layout and shared controls are in login-theme.css (loaded first).
+ */
+
+.login-nurse {
+    -role-dark:   #4A1D5E;
+    -role-main:   #E23E86;
+    -role-main2:  #F2579E;
+    -role-hover1: #FF70B0;
+    -role-hover2: #EE5596;
+    -role-soft:   #FFE8F3;
+    -role-tint:   #FFDCEF;
+    -role-shadow: rgba(226,62,134,0.45);
+    -role-hero-a: #F2579E;
+    -role-hero-b: #B02A73;
+}
+
+.login-nurse .hero-panel {
+    -fx-background-color: linear-gradient(to bottom left, -role-hero-a, -role-hero-b);
+}
+
+.login-nurse .login-submit {
+    -fx-background-radius: 26;
+}
+
+.login-nurse .login-input {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+/* Nurse: warm rose; larger floating shapes in the hero. */
+.login-nurse .form-panel {
+    -fx-background-color: linear-gradient(to bottom, #FFEFF7 0%, #FFFFFF 38%);
+}
+.login-nurse .hero-orb-small {
+    -fx-min-width: 150; -fx-min-height: 150; -fx-max-width: 150; -fx-max-height: 150;
+    -fx-background-radius: 150;
+}

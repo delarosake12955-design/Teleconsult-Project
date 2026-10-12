@@ -1,0 +1,275 @@
+/*
+ * Shared look for the four registration forms (patient, doctor, nurse, secretary).
+ * Loaded LAST in each form so it matches the "Choose Your Role" page:
+ * same glow background, heart logo header, role-coloured glass card, ECG footer.
+ * Selectors start with .reg-page so they win over each form's own stylesheet.
+ */
+
+.reg-page {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color:
+        radial-gradient(center 0% 0%, radius 38%, rgba(190, 212, 255, 0.70), rgba(190, 212, 255, 0)),
+        radial-gradient(center 100% 0%, radius 30%, rgba(170, 200, 255, 0.55), rgba(170, 200, 255, 0)),
+        radial-gradient(center 100% 100%, radius 42%, rgba(160, 190, 252, 0.75), rgba(160, 190, 252, 0)),
+        radial-gradient(center 0% 100%, radius 36%, rgba(180, 205, 253, 0.65), rgba(180, 205, 253, 0)),
+        linear-gradient(to bottom right, #F8FBFF, #EAF1FF);
+}
+
+/* ---- header ---- */
+.reg-page .header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: null;
+}
+
+.reg-page .logo-tele {
+    -fx-text-fill: #0B1B4D;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.reg-page .logo-consult {
+    -fx-text-fill: #1F6BFF;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.reg-page .logo-subtitle {
+    -fx-text-fill: #6B7BAA;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.reg-page .back-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: #BCD0FA;
+    -fx-border-radius: 22;
+    -fx-text-fill: #2864E6;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22;
+    -fx-cursor: hand;
+}
+
+.reg-page .back-button:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #7FA3F2;
+}
+
+/* ---- page area: let the glow background show through ---- */
+.reg-page .main-container {
+    -fx-background-color: transparent;
+}
+
+.reg-page .glass-layer-one,
+.reg-page .glass-layer-two,
+.reg-page .glass-layer-three {
+    -fx-opacity: 0;
+}
+
+.reg-page .registration-scroll,
+.reg-page .registration-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+/* ---- form card: glass, tinted at the top where the character sits ---- */
+.reg-page .form-card {
+    -fx-background-radius: 34;
+    -fx-border-radius: 34;
+    -fx-border-color: rgba(255, 255, 255, 0.95);
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.22), 32, 0.12, 0, 12);
+}
+
+.reg-page .subtitle {
+    -fx-text-fill: #5F6F9E;
+}
+
+/* ---- footer ---- */
+.reg-page .footer {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.reg-page .footer-line {
+    -fx-background-color: rgba(120, 140, 196, 0.45);
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+    -fx-min-height: 1;
+}
+
+.reg-page .ecg {
+    -fx-fill: transparent;
+    -fx-stroke: #7C8FC4;
+    -fx-stroke-width: 2;
+}
+
+.reg-page .footer-text {
+    -fx-text-fill: #7A89B5;
+    -fx-font-size: 12px;
+}
+
+/* ---- doctor ---- */
+.reg-doctor .form-card {
+    -fx-background-color: linear-gradient(to bottom, #D6E6FF 0%, #F2F7FF 20%, #FBFDFF 42%, #FFFFFF 100%);
+}
+
+.reg-doctor .title {
+    -fx-text-fill: #102A6B;
+}
+
+.reg-doctor .registration-badge {
+    -fx-background-color: rgba(31,107,240,0.12);
+    -fx-border-color: rgba(31,107,240,0.28);
+    -fx-text-fill: #1F6BF0;
+}
+
+.reg-doctor .register-button {
+    -fx-background-color: linear-gradient(to right, #2F80FF, #1F6BF0);
+    -fx-background-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(31,107,240,0.45), 14, 0.2, 0, 5);
+}
+
+.reg-doctor .register-button:hover {
+    -fx-background-color: linear-gradient(to right, #4A92FF, #2F7BFA);
+}
+
+.reg-doctor .input-field:focused {
+    -fx-border-color: #1F6BF0;
+}
+
+/* ---- patient ---- */
+.reg-patient .form-card {
+    -fx-background-color: linear-gradient(to bottom, #CFF5EC 0%, #F0FBF9 20%, #FBFDFF 42%, #FFFFFF 100%);
+}
+
+.reg-patient .title {
+    -fx-text-fill: #0B3B4D;
+}
+
+.reg-patient .registration-badge {
+    -fx-background-color: rgba(15,163,140,0.12);
+    -fx-border-color: rgba(15,163,140,0.28);
+    -fx-text-fill: #0FA38C;
+}
+
+.reg-patient .register-button {
+    -fx-background-color: linear-gradient(to right, #19C2A6, #0FA38C);
+    -fx-background-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(15,163,140,0.45), 14, 0.2, 0, 5);
+}
+
+.reg-patient .register-button:hover {
+    -fx-background-color: linear-gradient(to right, #2DD4B8, #17B89E);
+}
+
+.reg-patient .input-field:focused {
+    -fx-border-color: #0FA38C;
+}
+
+/* ---- nurse ---- */
+.reg-nurse .form-card {
+    -fx-background-color: linear-gradient(to bottom, #FFDCEF 0%, #FFF2F9 20%, #FBFDFF 42%, #FFFFFF 100%);
+}
+
+.reg-nurse .title {
+    -fx-text-fill: #4A1D5E;
+}
+
+.reg-nurse .registration-badge {
+    -fx-background-color: rgba(226,62,134,0.12);
+    -fx-border-color: rgba(226,62,134,0.28);
+    -fx-text-fill: #E23E86;
+}
+
+.reg-nurse .register-button {
+    -fx-background-color: linear-gradient(to right, #F2579E, #E23E86);
+    -fx-background-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(226,62,134,0.45), 14, 0.2, 0, 5);
+}
+
+.reg-nurse .register-button:hover {
+    -fx-background-color: linear-gradient(to right, #FF70B0, #EE5596);
+}
+
+.reg-nurse .input-field:focused {
+    -fx-border-color: #E23E86;
+}
+
+/* ---- secretary ---- */
+.reg-secretary .form-card {
+    -fx-background-color: linear-gradient(to bottom, #E3DCFF 0%, #F4F1FF 20%, #FBFDFF 42%, #FFFFFF 100%);
+}
+
+.reg-secretary .title {
+    -fx-text-fill: #35216B;
+}
+
+.reg-secretary .registration-badge {
+    -fx-background-color: rgba(106,69,238,0.12);
+    -fx-border-color: rgba(106,69,238,0.28);
+    -fx-text-fill: #6A45EE;
+}
+
+.reg-secretary .register-button {
+    -fx-background-color: linear-gradient(to right, #7C5DFF, #6A45EE);
+    -fx-background-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(106,69,238,0.45), 14, 0.2, 0, 5);
+}
+
+.reg-secretary .register-button:hover {
+    -fx-background-color: linear-gradient(to right, #9078FF, #7C5DFF);
+}
+
+.reg-secretary .input-field:focused {
+    -fx-border-color: #6A45EE;
+}
+
+/* ---- login and administrator login (same glass-card look) ---- */
+.reg-page .top-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: null;
+}
+
+.reg-page .login-card {
+    -fx-background-radius: 34;
+    -fx-border-radius: 34;
+    -fx-border-color: rgba(255, 255, 255, 0.95);
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.22), 32, 0.12, 0, 12);
+}
+
+.reg-login .login-card {
+    -fx-background-color: linear-gradient(to bottom, #D6E6FF 0%, #F2F7FF 18%, #FBFDFF 40%, #FFFFFF 100%);
+}
+
+.reg-admin .login-card {
+    -fx-background-color: linear-gradient(to bottom, #DCE4FF 0%, #F3F5FF 22%, #FBFCFF 44%, #FFFFFF 100%);
+}
+
+.reg-login .title, .reg-admin .title {
+    -fx-text-fill: #102A6B;
+}
+
+.reg-login .login-badge, .reg-admin .admin-badge {
+    -fx-background-color: rgba(31, 107, 240, 0.12);
+    -fx-border-color: rgba(31, 107, 240, 0.28);
+    -fx-text-fill: #1F6BF0;
+}
+
+.reg-login .login-main-button, .reg-admin .login-button {
+    -fx-background-color: linear-gradient(to right, #2F80FF, #1F6BF0);
+    -fx-background-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(31, 107, 240, 0.45), 14, 0.2, 0, 5);
+}
+
+.reg-login .login-main-button:hover, .reg-admin .login-button:hover {
+    -fx-background-color: linear-gradient(to right, #4A92FF, #2F7BFA);
+}
+
+.reg-page .security-text {
+    -fx-text-fill: #7A89B5;
+}

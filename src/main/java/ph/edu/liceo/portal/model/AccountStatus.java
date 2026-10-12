@@ -1,4 +1,7 @@
 package ph.edu.liceo.portal.model;
 
-public class AccountStatus {
+public enum AccountStatus {
+    PENDING,
+    ACTIVE,
+    REJECTED
 }

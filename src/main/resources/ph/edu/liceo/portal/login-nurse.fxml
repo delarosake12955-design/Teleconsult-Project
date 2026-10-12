@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<!-- Nurse sign-in page. Same controller for all four roles; the role comes from the
+     sign-in button's userData. Colours live in login-nurse.css, structure in login-theme.css. -->
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.liceo.portal.controller.LoginController"
+            stylesheets="@login-theme.css, @login-nurse.css"
+            styleClass="login-page,login-nurse">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="header">
+            <padding>
+                <Insets top="22" right="50" bottom="14" left="50"/>
+            </padding>
+
+            <ImageView fitWidth="50" preserveRatio="true" smooth="true">
+                <image>
+                    <Image url="@register-logo.png"/>
+                </image>
+            </ImageView>
+
+            <VBox spacing="1">
+                <HBox alignment="BOTTOM_LEFT">
+                    <Label text="Tele" styleClass="logo-tele"/>
+                    <Label text="Consult" styleClass="logo-consult"/>
+                </HBox>
+                <Label text="M E D I C A L   S Y S T E M" styleClass="logo-subtitle"/>
+            </VBox>
+
+            <Label text="NURSE SIGN IN" styleClass="role-badge"/>
+
+            <HBox HBox.hgrow="ALWAYS"/>
+
+            <Button text="←  Choose role"
+                    fx:id="backButton"
+                    onAction="#handleBack"
+                    styleClass="back-button"/>
+
+            <Button text="Home"
+                    fx:id="homeButton"
+                    onAction="#handleHome"
+                    styleClass="back-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true"
+                    fitToHeight="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    styleClass="login-scroll">
+            <content>
+                <StackPane styleClass="main-container">
+                    <padding>
+                        <Insets top="6" right="40" bottom="14" left="40"/>
+                    </padding>
+
+                    <HBox alignment="CENTER"
+                          maxWidth="980"
+                          maxHeight="Infinity"
+                          styleClass="login-split">
+
+                        <!-- ===== role panel ===== -->
+                        <StackPane minWidth="390" prefWidth="390" maxWidth="390" styleClass="hero-panel">
+
+                            <Region styleClass="hero-orb-big" StackPane.alignment="TOP_RIGHT" mouseTransparent="true"/>
+                            <Region styleClass="hero-orb-small" StackPane.alignment="BOTTOM_LEFT" mouseTransparent="true"/>
+
+                            <VBox alignment="TOP_LEFT" spacing="14" styleClass="hero-content">
+
+                                <Label text="NURSE  PORTAL" styleClass="hero-chip"/>
+
+                                <StackPane styleClass="hero-art" alignment="CENTER">
+                                    <ImageView fitWidth="270" preserveRatio="true" smooth="true">
+                                        <image>
+                                            <Image url="@register-nurse.png"/>
+                                        </image>
+                                    </ImageView>
+                                </StackPane>
+
+                                <Label text="Care that starts&#10;at the bedside." wrapText="true" styleClass="hero-title"/>
+                                <Label text="Record vitals, support doctors and keep patient information current." wrapText="true" styleClass="hero-sub"/>
+
+                                <VBox spacing="10" styleClass="feature-list">
+                        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="feature-row">
+                            <StackPane styleClass="feature-icon">
+                                <SVGPath content="M3 13h4l2-6 4 12 2-6h6v-2h-4.6l-3.4 10L9 5l-1.6 6H3v2z" styleClass="feature-glyph"/>
+                            </StackPane>
+                            <VBox spacing="1">
+                                <Label text="Record vital signs" styleClass="feature-title"/>
+                                <Label text="Log readings the moment you take them." wrapText="true" styleClass="feature-desc"/>
+                            </VBox>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="feature-row">
+                            <StackPane styleClass="feature-icon">
+                                <SVGPath content="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" styleClass="feature-glyph"/>
+                            </StackPane>
+                            <VBox spacing="1">
+                                <Label text="Review patient requests" styleClass="feature-title"/>
+                                <Label text="Triage requests before the doctor steps in." wrapText="true" styleClass="feature-desc"/>
+                            </VBox>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="feature-row">
+                            <StackPane styleClass="feature-icon">
+                                <SVGPath content="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" styleClass="feature-glyph"/>
+                            </StackPane>
+                            <VBox spacing="1">
+                                <Label text="Keep records current" styleClass="feature-title"/>
+                                <Label text="Accurate notes for every consultation." wrapText="true" styleClass="feature-desc"/>
+                            </VBox>
+                        </HBox>
+                                </VBox>
+
+                            </VBox>
+                        </StackPane>
+
+                        <!-- ===== sign-in form ===== -->
+                        <VBox alignment="CENTER_LEFT"
+                              spacing="15"
+                              HBox.hgrow="ALWAYS"
+                              minWidth="420"
+                              styleClass="form-panel">
+
+                            <VBox spacing="4">
+                                <Label text="W E L C O M E   B A C K ,   N U R S E" styleClass="eyebrow"/>
+                                <Label text="Nurse Sign In" styleClass="title"/>
+                                <Label text="Sign in with your verified nurse account." wrapText="true" styleClass="subtitle"/>
+                            </VBox>
+
+                            <VBox spacing="7">
+                                <Label text="Email" styleClass="field-label"/>
+                                <TextField fx:id="usernameField"
+                                           promptText="Enter your email"
+                                           styleClass="login-input"/>
+                            </VBox>
+
+                            <VBox spacing="7">
+                                <Label text="Password" styleClass="field-label"/>
+
+                                <PasswordField fx:id="passwordField"
+                                               promptText="Enter your password"
+                                               styleClass="login-input"/>
+
+                                <TextField fx:id="visiblePasswordField"
+                                           promptText="Enter your password"
+                                           visible="false"
+                                           managed="false"
+                                           styleClass="login-input"/>
+
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <CheckBox fx:id="showPasswordCheckBox"
+                                              text="Show password"
+                                              onAction="#handleShowPassword"
+                                              styleClass="show-password"/>
+
+                                    <Region HBox.hgrow="ALWAYS"/>
+
+                                    <Button text="Forgot password?"
+                                            fx:id="forgotButton"
+                                            onAction="#handleForgotPassword"
+                                            styleClass="link-button"/>
+                                </HBox>
+                            </VBox>
+
+                            <Label fx:id="messageLabel"
+                                   text=""
+                                   wrapText="true"
+                                   styleClass="message"/>
+
+                            <Button text="Sign in as Nurse  →"
+                                    fx:id="loginButton"
+                                    userData="Nurse"
+                                    onAction="#handleLogin"
+                                    maxWidth="Infinity"
+                                    styleClass="login-submit"/>
+
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <Label text="Not registered yet?" styleClass="small-text"/>
+                                <Button text="Register as a nurse"
+                                        fx:id="registerButton"
+                                        onAction="#handleRegister"
+                                        styleClass="link-button"/>
+                            </HBox>
+
+                            <Region styleClass="form-divider" minHeight="1" prefHeight="1" maxHeight="1"/>
+
+                            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="switch-strip">
+                                <Label text="Not a nurse? Sign in as" styleClass="small-text"/>
+                        <Button text="Patient" userData="Patient"
+                                onAction="#switchRole" styleClass="switch-chip,switch-chip-patient"/>
+                        <Button text="Doctor" userData="Doctor"
+                                onAction="#switchRole" styleClass="switch-chip,switch-chip-doctor"/>
+                        <Button text="Secretary" userData="Secretary"
+                                onAction="#switchRole" styleClass="switch-chip,switch-chip-secretary"/>
+                            </HBox>
+
+                        </VBox>
+                    </HBox>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" spacing="6" styleClass="footer">
+            <padding>
+                <Insets top="8" right="20" bottom="14" left="20"/>
+            </padding>
+
+            <HBox alignment="CENTER" spacing="14">
+                <Region styleClass="footer-line" minWidth="150" prefWidth="150" maxWidth="150"/>
+                <SVGPath content="M0 14 L16 14 L22 14 L27 3 L35 26 L41 14 L62 14" styleClass="ecg"/>
+                <Region styleClass="footer-line" minWidth="150" prefWidth="150" maxWidth="150"/>
+            </HBox>
+
+            <Label text="TeleConsult Medical System  •  Nurse Portal" styleClass="footer-text"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

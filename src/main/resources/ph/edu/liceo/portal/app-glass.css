@@ -1,0 +1,158 @@
+/*
+ * App-wide "register look". OverlayHost adds the .tc-app class to every page root and
+ * loads this stylesheet last, so the dashboards, the homepage and all inner pages share
+ * the Choose-Your-Role design: glow background, navy sidebar with the new logo,
+ * glass cards, pill buttons and rounded inputs. (The registration / login forms are styled by
+ * register-theme.css and are deliberately not touched here.)
+ */
+
+.tc-app {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color:
+        radial-gradient(center 0% 0%, radius 38%, rgba(190, 212, 255, 0.70), rgba(190, 212, 255, 0)),
+        radial-gradient(center 100% 0%, radius 30%, rgba(170, 200, 255, 0.55), rgba(170, 200, 255, 0)),
+        radial-gradient(center 100% 100%, radius 42%, rgba(160, 190, 252, 0.75), rgba(160, 190, 252, 0)),
+        radial-gradient(center 0% 100%, radius 36%, rgba(180, 205, 253, 0.65), rgba(180, 205, 253, 0)),
+        linear-gradient(to bottom right, #F8FBFF, #EAF1FF);
+}
+
+.tc-app .main-area, .tc-app .content-host {
+    -fx-background-color: transparent;
+}
+
+/* ---- navy sidebar (kept from the original design) ----
+ * The sidebar background and the portal label, subtitle, hover and homepage
+ * system-card colours come from teleconsult-theme.css / homepage.css untouched.
+ * Only the new logo, the pill shape and the active item are set here. */
+.tc-app .sidebar .logo-tele {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.tc-app .sidebar .logo-consult {
+    -fx-text-fill: #5B9BFF;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.tc-app .nav-button, .tc-app .logout-button {
+    -fx-background-radius: 18;
+}
+
+.tc-app .nav-button-active {
+    -fx-background-radius: 18;
+    -fx-background-color: linear-gradient(to right, #2F80FF, #1F6BF0);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(31, 107, 240, 0.40), 12, 0.15, 0, 4);
+}
+
+/* ---- glass cards ---- */
+.tc-app .summary-card, .tc-app .stat-card, .tc-app .request-card, .tc-app .appointment-card,
+.tc-app .quick-card, .tc-app .verification-card, .tc-app .schedule-card, .tc-app .welcome-card,
+.tc-app .status-card, .tc-app .consultation-card, .tc-app .record-card, .tc-app .history-card,
+.tc-app .information-card, .tc-app .account-card, .tc-app .details-card, .tc-app .table-card,
+.tc-app .calendar-card, .tc-app .booking-options-card, .tc-app .content-card, .tc-app .panel-card,
+.tc-app .search-card, .tc-app .doctor-card, .tc-app .patient-card, .tc-app .feature-card,
+.tc-app .upcoming-card, .tc-app .profile-mini-card {
+    -fx-background-color: rgba(255, 255, 255, 0.82);
+    -fx-background-radius: 26;
+    -fx-border-color: rgba(255, 255, 255, 0.95);
+    -fx-border-radius: 26;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.16), 26, 0.10, 0, 10);
+}
+
+.tc-app .quick-card:hover, .tc-app .doctor-card:hover, .tc-app .patient-card:hover,
+.tc-app .feature-card:hover, .tc-app .request-card:hover {
+    -fx-translate-y: -4;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.28), 32, 0.14, 0, 14);
+}
+
+/* ---- headings ---- */
+.tc-app .page-title, .tc-app .section-title, .tc-app .welcome-title,
+.tc-app .quick-title, .tc-app .card-title, .tc-app .panel-title {
+    -fx-text-fill: #0B1B4D;
+}
+
+.tc-app .page-description, .tc-app .section-description, .tc-app .table-description {
+    -fx-text-fill: #5F6F9E;
+}
+
+/* ---- pill buttons ---- */
+.tc-app .primary-button, .tc-app .card-button, .tc-app .topbar-primary-button {
+    -fx-background-color: linear-gradient(to right, #2F80FF, #1F6BF0);
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(31, 107, 240, 0.40), 12, 0.15, 0, 4);
+}
+
+.tc-app .primary-button:hover, .tc-app .card-button:hover, .tc-app .topbar-primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #4A92FF, #2F7BFA);
+}
+
+.tc-app .secondary-button, .tc-app .profile-button, .tc-app .topbar-outline-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: #BCD0FA;
+    -fx-border-radius: 22;
+    -fx-text-fill: #2864E6;
+    -fx-font-weight: bold;
+}
+
+.tc-app .secondary-button:hover, .tc-app .profile-button:hover, .tc-app .topbar-outline-button:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #7FA3F2;
+}
+
+.tc-app .danger-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: #F0B7B7;
+    -fx-border-radius: 22;
+    -fx-text-fill: #B42D2D;
+    -fx-font-weight: bold;
+}
+
+.tc-app .danger-button:hover {
+    -fx-background-color: #FDEEEE;
+    -fx-border-color: #E58E8E;
+}
+
+/* ---- inputs inside pages (forms keep their own role colours) ---- */
+.tc-app .main-content .text-field, .tc-app .main-content .password-field,
+.tc-app .main-content .combo-box, .tc-app .main-content .date-picker,
+.tc-app .main-content .search-field, .tc-app .main-content .filter-combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #D3DFF6;
+    -fx-border-radius: 14;
+}
+
+.tc-app .main-content .text-field:focused, .tc-app .main-content .password-field:focused,
+.tc-app .main-content .combo-box:focused, .tc-app .main-content .date-picker:focused,
+.tc-app .main-content .search-field:focused {
+    -fx-border-color: #2F80FF;
+}
+
+/* ---- tables ---- */
+.tc-app .table-view {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #D9E4F8;
+}
+
+.tc-app .table-view .column-header-background, .tc-app .table-view .column-header,
+.tc-app .table-view .filler {
+    -fx-background-color: #EAF1FF;
+}
+
+.tc-app .table-view .column-header .label {
+    -fx-text-fill: #34457A;
+    -fx-font-weight: bold;
+}
+
+.tc-app .table-row-cell:selected {
+    -fx-background-color: #DCE9FF;
+}

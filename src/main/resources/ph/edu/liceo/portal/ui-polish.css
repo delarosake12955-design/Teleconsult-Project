@@ -1,0 +1,106 @@
+/*
+ * Shared polish applied on top of every page (OverlayHost.setPage adds it last).
+ * Additive only: it covers states the page stylesheets leave out
+ * (disabled, hover, pressed, scroll bars, tooltips) so all roles feel the same.
+ */
+
+/* ---- buttons: clear disabled state and press feedback ---- */
+.button:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
+}
+
+.button:pressed {
+    -fx-translate-y: 1;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #7FA3F2;
+}
+
+.danger-button:hover {
+    -fx-background-color: #FDEEEE;
+    -fx-border-color: #E58E8E;
+}
+
+.secondary-button:disabled, .danger-button:disabled, .primary-button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ---- slim, rounded scroll bars ---- */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 11;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 11;
+}
+
+.scroll-bar > .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar > .thumb {
+    -fx-background-color: #C3D1EE;
+    -fx-background-radius: 8;
+    -fx-background-insets: 2;
+}
+
+.scroll-bar > .thumb:hover {
+    -fx-background-color: #9FB4E3;
+}
+
+.scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-padding: 0;
+    -fx-shape: " ";
+}
+
+/* ---- tooltips ---- */
+.tooltip {
+    -fx-background-color: #101A43;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 8;
+    -fx-padding: 6 10;
+}
+
+/* ---- Patient type (Senior / PWD / Regular) ---- */
+.patient-type-badge {
+    -fx-padding: 8 14 8 14;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-background-color: #F1F5F9;
+    -fx-border-color: #CBD5E1;
+}
+
+.patient-type-badge.patient-type-priority {
+    -fx-text-fill: #0F766E;
+    -fx-background-color: #E6FFFA;
+    -fx-border-color: #5EEAD4;
+}
+
+.patient-type-badge.patient-type-regular {
+    -fx-text-fill: #475569;
+    -fx-background-color: #F1F5F9;
+    -fx-border-color: #CBD5E1;
+}
+
+.patient-type-note {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+}
+

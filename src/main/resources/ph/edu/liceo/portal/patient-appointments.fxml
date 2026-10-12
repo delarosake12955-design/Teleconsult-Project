@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.liceo.portal.controller.AppointmentController"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            stylesheets="@patient-appointments.css, @teleconsult-theme.css"
+            styleClass="appointments-root patient-appointments-page">
+
+    <content>
+        <VBox spacing="24" styleClass="main-content">
+
+            <VBox spacing="5">
+                <Label text="Appointments" styleClass="page-title"/>
+                <Label fx:id="pageSubtitleLabel"
+                       text="Choose a doctor, check availability, and request an appointment."
+                       styleClass="page-description"/>
+            </VBox>
+
+            <HBox spacing="18">
+                <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="summary-card">
+                    <Label text="Appointments" styleClass="summary-title"/>
+                    <Label fx:id="summaryNumberLabel" text="0" styleClass="summary-number"/>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="summary-card">
+                    <Label text="View" styleClass="summary-title"/>
+                    <Label fx:id="summaryStatusLabel" text="Appointment activity" styleClass="summary-description"/>
+                </VBox>
+            </HBox>
+
+            <VBox fx:id="bookingCard" spacing="18" styleClass="form-card">
+
+                <VBox spacing="4">
+                    <Label text="Book an Appointment" styleClass="section-title"/>
+                    <Label text="Green dates are available. Red dates are unavailable."
+                           styleClass="section-description"/>
+                </VBox>
+
+                <HBox spacing="18">
+                    <VBox HBox.hgrow="ALWAYS" spacing="7">
+                        <Label text="Doctor" styleClass="field-label"/>
+                        <ComboBox fx:id="doctorComboBox"
+                                  promptText="Select doctor"
+                                  maxWidth="Infinity"
+                                  styleClass="combo-box"/>
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS" spacing="7">
+                        <Label text="Specialty" styleClass="field-label"/>
+                        <ComboBox fx:id="specialtyComboBox"
+                                  disable="true"
+                                  maxWidth="Infinity"
+                                  styleClass="combo-box"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="18">
+                    <VBox HBox.hgrow="ALWAYS" spacing="14" styleClass="calendar-card">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Button text="‹" onAction="#handlePreviousMonth" styleClass="calendar-nav-button"/>
+                            <Label fx:id="monthLabel" text="September 2026"
+                                   HBox.hgrow="ALWAYS" styleClass="month-title"/>
+                            <Button text="›" onAction="#handleNextMonth" styleClass="calendar-nav-button"/>
+                        </HBox>
+
+                        <Button text="Today" onAction="#handleToday" styleClass="today-button"/>
+
+                        <GridPane fx:id="calendarGrid" hgap="8" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                                <ColumnConstraints percentWidth="14.2857"/>
+                            </columnConstraints>
+                        </GridPane>
+
+                        <HBox spacing="14">
+                            <Label fx:id="availabilityLabel" text="AVAILABLE" styleClass="availability-green"/>
+                            <Label fx:id="selectedDateLabel" text="Today" styleClass="selected-date-small"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox prefWidth="300" spacing="12" styleClass="booking-options-card">
+                        <Label text="Appointment Details" styleClass="section-title"/>
+
+                        <Label fx:id="patientTypeLabel"
+                               wrapText="true"
+                               maxWidth="Infinity"
+                               styleClass="patient-type-badge"/>
+
+                        <Label text="Time" styleClass="field-label"/>
+                        <ComboBox fx:id="timeComboBox"
+                                  promptText="Select available time"
+                                  maxWidth="Infinity"
+                                  styleClass="combo-box"/>
+
+                        <Label text="Category" styleClass="field-label"/>
+                        <ComboBox fx:id="categoryComboBox"
+                                  maxWidth="Infinity"
+                                  styleClass="combo-box"/>
+
+                        <VBox spacing="10" styleClass="vitals-box">
+
+                            <HBox alignment="CENTER_LEFT" spacing="8">
+                                <Label text="Your vitals" styleClass="field-label"/>
+                                <Label text="Optional" styleClass="vitals-optional"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button text="Clear"
+                                        onAction="#handleClearVitals"
+                                        styleClass="vitals-clear-button"/>
+                            </HBox>
+
+                            <Label text="Have a thermometer or blood pressure monitor at home? Fill these in and the nurse can skip a step. No device? Leave them empty and a nurse will check you."
+                                   wrapText="true"
+                                   styleClass="vitals-help"/>
+
+                            <GridPane hgap="12" vgap="10">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                                </columnConstraints>
+
+                                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="4">
+                                    <Label text="Temperature" styleClass="vitals-label"/>
+                                    <HBox alignment="CENTER_LEFT" spacing="6">
+                                        <TextField fx:id="tempField" promptText="36.5" minWidth="0" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                        <Label text="&#176;C" styleClass="vitals-unit"/>
+                                    </HBox>
+                                </VBox>
+
+                                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="4">
+                                    <Label text="Pulse" styleClass="vitals-label"/>
+                                    <HBox alignment="CENTER_LEFT" spacing="6">
+                                        <TextField fx:id="heartRateField" promptText="72" minWidth="0" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                        <Label text="bpm" styleClass="vitals-unit"/>
+                                    </HBox>
+                                </VBox>
+
+                                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2" spacing="4">
+                                    <Label text="Blood pressure (top / bottom)" styleClass="vitals-label"/>
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <TextField fx:id="bpSystolicField" promptText="120" minWidth="0" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                        <Label text="/" styleClass="vitals-unit"/>
+                                        <TextField fx:id="bpDiastolicField" promptText="80" minWidth="0" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                        <Label text="mmHg" styleClass="vitals-unit"/>
+                                    </HBox>
+                                </VBox>
+
+                                <VBox GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="4">
+                                    <Label text="Breathing" styleClass="vitals-label"/>
+                                    <HBox alignment="CENTER_LEFT" spacing="6">
+                                        <TextField fx:id="respField" promptText="16" minWidth="0" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                                        <Label text="per min" styleClass="vitals-unit"/>
+                                    </HBox>
+                                </VBox>
+                            </GridPane>
+
+                            <Label fx:id="vitalsStatusLabel" wrapText="true" styleClass="vitals-status"/>
+
+                        </VBox>
+
+                        <Label text="Notes" styleClass="field-label"/>
+                        <TextArea fx:id="notesArea"
+                                  promptText="Describe your reason for the appointment..."
+                                  prefRowCount="5"
+                                  wrapText="true"
+                                  styleClass="text-area"/>
+
+                        <Button text="Book Appointment  →"
+                                onAction="#handleBookAppointment"
+                                styleClass="primary-button"/>
+                    </VBox>
+                </HBox>
+
+                <Label fx:id="messageLabel" text="" wrapText="true" styleClass="message"/>
+            </VBox>
+
+            <VBox spacing="14" styleClass="table-card">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <VBox HBox.hgrow="ALWAYS" spacing="3">
+                        <Label text="Appointment Requests" styleClass="section-title"/>
+                        <Label text="Review appointment status and actions."
+                               styleClass="table-description"/>
+                    </VBox>
+                    <Button text="Refresh" onAction="#handleRefresh" styleClass="secondary-button"/>
+                    <Button text="Approve" fx:id="approveButton" onAction="#handleApprove" styleClass="primary-button"/>
+                    <Button text="Reject" fx:id="rejectButton" onAction="#handleReject" styleClass="danger-button"/>
+                </HBox>
+
+                <TableView fx:id="appointmentTable" prefHeight="350" styleClass="appointment-table">
+                    <columns>
+                        <TableColumn fx:id="patientColumn" text="Patient" prefWidth="150"/>
+                        <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="160"/>
+                        <TableColumn fx:id="specialtyColumn" text="Specialty" prefWidth="145"/>
+                        <TableColumn fx:id="dateColumn" text="Date" prefWidth="105"/>
+                        <TableColumn fx:id="timeColumn" text="Time" prefWidth="105"/>
+                        <TableColumn fx:id="categoryColumn" text="Category" prefWidth="130"/>
+                        <TableColumn fx:id="typeColumn" text="Type" prefWidth="125"/>
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="105"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No appointments found." styleClass="empty-label"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>
