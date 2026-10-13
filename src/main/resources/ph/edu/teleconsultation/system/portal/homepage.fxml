@@ -584,7 +584,7 @@
                                    styleClass="information-title"/>
 
 
-                            <Label text="TeleConsult Medical System is a JavaFX healthcare platform designed to organize appointments, doctors, consultations, and medical records in one organized system."
+                            <Label text="TeleConsult Medical System is a healthcare platform designed to organize appointments, doctors, consultations, and medical records in one organized system."
                                    wrapText="true"
                                    styleClass="information-description"/>
 
