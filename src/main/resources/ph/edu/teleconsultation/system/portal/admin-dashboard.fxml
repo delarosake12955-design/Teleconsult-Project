@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.teleconsultation.system.portal.controller.AdminDashboardController"
+            stylesheets="@admin-dashboard.css, @teleconsult-theme.css, @notifications.css"
+            styleClass="page">
+
+    <left>
+
+        <VBox prefWidth="245"
+              spacing="8"
+              styleClass="sidebar">
+
+            <padding>
+                <Insets top="28"
+                        right="18"
+                        bottom="25"
+                        left="18"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="10"
+                  styleClass="brand-container">
+
+                <ImageView fitWidth="46" preserveRatio="true" smooth="true">
+                    <image>
+                        <Image url="@register-logo.png"/>
+                    </image>
+                </ImageView>
+
+                <VBox spacing="1">
+
+                    <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+
+                    <Label text="M E D I C A L   S Y S T E M"
+                           styleClass="sidebar-subtitle"/>
+
+                </VBox>
+
+            </HBox>
+
+            <Label text="ADMIN PORTAL"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+                <StackPane styleClass="notification-row">
+
+                    <Button text="Notifications"
+                            fx:id="notificationsButton"
+                            onAction="#handleNotifications"
+                            maxWidth="Infinity"
+                            styleClass="nav-button"/>
+
+                    <Label fx:id="notificationBadge"
+                           text="0"
+                           visible="false"
+                           managed="false"
+                           mouseTransparent="true"
+                           styleClass="notification-badge"
+                           StackPane.alignment="CENTER_RIGHT"/>
+
+                </StackPane>
+
+
+                <Button text="Verification Requests"
+                        fx:id="verificationButton"
+                        onAction="#handleVerificationRequests"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Users"
+                        fx:id="usersButton"
+                        onAction="#handleUsers"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Doctors"
+                        fx:id="doctorsButton"
+                        onAction="#handleDoctors"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Appointments"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <VBox spacing="10"
+                  styleClass="sidebar-bottom">
+
+                <Label text="ADMIN ACCOUNT"
+                       styleClass="account-label"/>
+
+                <Button text="Logout"
+                        fx:id="logoutButton"
+                        onAction="#handleLogout"
+                        maxWidth="Infinity"
+                        styleClass="logout-button"/>
+
+            </VBox>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <StackPane fx:id="contentHost" styleClass="content-host">
+
+            <ScrollPane fx:id="dashboardContent" fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    styleClass="main-scroll">
+
+            <content>
+
+                <VBox spacing="26"
+                      styleClass="main-content">
+
+                    <!-- HEADER -->
+
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="20">
+
+                        <VBox spacing="5"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label text="Good day,"
+                                   styleClass="greeting"/>
+
+                            <Label fx:id="adminNameLabel"
+                                   text="Administrator"
+                                   styleClass="admin-name"/>
+
+                            <Label text="Manage your TeleConsult system in one place."
+                                   styleClass="description"/>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER"
+                              spacing="2"
+                              styleClass="profile-mini-card">
+
+                            <StackPane styleClass="profile-icon">
+
+                                <Label text="+"
+                                       styleClass="profile-plus"/>
+
+                            </StackPane>
+
+                            <Label fx:id="profileNameLabel"
+                                   text="Administrator"
+                                   styleClass="profile-name"/>
+
+                            <Label text="Administrator"
+                                   styleClass="profile-role"/>
+
+                        </VBox>
+
+                    </HBox>
+
+
+                    <!-- MAIN ADMIN FEATURE -->
+
+                    <HBox spacing="18">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="16"
+                              styleClass="welcome-card">
+
+                            <Label text="Manage TeleConsult."
+                                   styleClass="welcome-title"/>
+
+                            <Label text="Review registered users, verify professional accounts, and keep the system organized."
+                                   wrapText="true"
+                                   styleClass="welcome-description"/>
+
+                            <Button text="Review Requests  →"
+                                    fx:id="reviewRequestsButton"
+                                    onAction="#handleVerificationRequests"
+                                    styleClass="primary-button"/>
+
+                        </VBox>
+
+
+                        <!-- SYSTEM STATUS -->
+
+                        <VBox prefWidth="285"
+                              spacing="14"
+                              styleClass="status-card">
+
+                            <HBox alignment="CENTER_LEFT">
+
+                                <Label text="System Status"
+                                       styleClass="card-title"
+                                       HBox.hgrow="ALWAYS"/>
+
+                                <StackPane styleClass="status-icon">
+
+                                    <Label text="✓"
+                                           styleClass="status-check"/>
+
+                                </StackPane>
+
+                            </HBox>
+
+                            <Label text="TeleConsult system is ready to manage."
+                                   wrapText="true"
+                                   styleClass="status-text"/>
+
+                            <Button text="View Users  →"
+                                    fx:id="viewUsersButton"
+                                    onAction="#handleUsers"
+                                    styleClass="secondary-button"/>
+
+                        </VBox>
+
+                    </HBox>
+
+
+                    <!-- OVERVIEW -->
+
+                    <Label text="System Overview"
+                           styleClass="section-title"/>
+
+                    <HBox spacing="16">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="8"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="U"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Total Users"
+                                   styleClass="quick-title"/>
+
+                            <Label fx:id="userCountLabel"
+                                   text="0"
+                                   styleClass="overview-number"/>
+
+                            <Label text="Registered system users."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                        </VBox>
+
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="8"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="V"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Pending Verification"
+                                   styleClass="quick-title"/>
+
+                            <Label fx:id="pendingCountLabel"
+                                   text="0"
+                                   styleClass="overview-number"/>
+
+                            <Label text="Accounts waiting for approval."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                        </VBox>
+
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="8"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="A"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Appointments"
+                                   styleClass="quick-title"/>
+
+                            <Label fx:id="appointmentCountLabel"
+                                   text="0"
+                                   styleClass="overview-number"/>
+
+                            <Label text="Appointments recorded in the system."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                        </VBox>
+
+                    </HBox>
+
+
+                    <!-- QUICK ACCESS -->
+
+                    <Label text="Quick Access"
+                           styleClass="section-title"/>
+
+                    <HBox spacing="16">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="12"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="V"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Verification"
+                                   styleClass="quick-title"/>
+
+                            <Label text="Approve or reject pending professional accounts."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                            <Button text="Review Requests  →"
+                                    fx:id="quickVerificationButton"
+                                    onAction="#handleVerificationRequests"
+                                    styleClass="card-button"/>
+
+                        </VBox>
+
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="12"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="U"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Users"
+                                   styleClass="quick-title"/>
+
+                            <Label text="View and manage registered system users."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                            <Button text="View Users  →"
+                                    fx:id="quickUsersButton"
+                                    onAction="#handleUsers"
+                                    styleClass="card-button"/>
+
+                        </VBox>
+
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="12"
+                              styleClass="quick-card">
+
+                            <StackPane styleClass="quick-icon">
+
+                                <Label text="D"
+                                       styleClass="quick-icon-text"/>
+
+                            </StackPane>
+
+                            <Label text="Doctors"
+                                   styleClass="quick-title"/>
+
+                            <Label text="View registered doctors and their information."
+                                   wrapText="true"
+                                   styleClass="quick-description"/>
+
+                            <Button text="View Doctors  →"
+                                    fx:id="quickDoctorsButton"
+                                    onAction="#handleDoctors"
+                                    styleClass="card-button"/>
+
+                        </VBox>
+
+                    </HBox>
+
+
+                    <!-- VERIFICATION REQUEST -->
+
+                    <VBox spacing="14"
+                          styleClass="upcoming-card">
+
+                        <HBox alignment="CENTER_LEFT">
+
+                            <VBox spacing="3"
+                                  HBox.hgrow="ALWAYS">
+
+                                <Label text="Verification Requests"
+                                       styleClass="section-title"/>
+
+                                <Label text="Professional accounts waiting for administrator approval."
+                                       styleClass="section-subtitle"/>
+
+                            </VBox>
+
+                            <Button text="View All  →"
+                                    fx:id="viewVerificationButton"
+                                    onAction="#handleVerificationRequests"
+                                    styleClass="link-button"/>
+
+                        </HBox>
+
+
+                        <HBox spacing="15"
+                              alignment="CENTER_LEFT"
+                              styleClass="appointment-row">
+
+                            <StackPane styleClass="appointment-icon">
+
+                                <Label text="V"
+                                       styleClass="appointment-plus"/>
+
+                            </StackPane>
+
+                            <VBox spacing="4"
+                                  HBox.hgrow="ALWAYS">
+
+                                <Label fx:id="requestUserLabel"
+                                       text="No pending verification requests"
+                                       styleClass="appointment-doctor"/>
+
+                                <Label fx:id="requestRoleLabel"
+                                       text=""
+                                       styleClass="appointment-specialty"/>
+
+                            </VBox>
+
+                            <VBox alignment="CENTER_RIGHT"
+                                  spacing="4">
+
+                                <Label fx:id="requestStatusLabel"
+                                       text=""
+                                       styleClass="appointment-time"/>
+
+                            </VBox>
+
+                        </HBox>
+
+                    </VBox>
+
+                </VBox>
+
+            </content>
+
+            </ScrollPane>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>

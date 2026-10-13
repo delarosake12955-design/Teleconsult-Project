@@ -1,0 +1,88 @@
+/* ==========================================================
+   TeleConsult role icons (patient, doctor, nurse, secretary)
+   Shared by the homepage and the register page.
+
+   Use:  <StackPane styleClass="role-tile role-tile-doctor">
+             <Region styleClass="role-icon role-icon-doctor role-icon-lg"/>
+         </StackPane>
+
+   Colours match the sign-in loading screen:
+   patient = blue, doctor = teal, nurse = pink, secretary = amber.
+   ========================================================== */
+
+/* ---- vector shapes (drawn white, scaled to the Region size) ---- */
+.role-icon {
+    -fx-background-color: white;
+    -fx-scale-shape: true;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-pref-width: 30;
+    -fx-pref-height: 30;
+    -fx-max-width: 30;
+    -fx-max-height: 30;
+}
+
+.role-icon-sm {
+    -fx-min-width: 24;
+    -fx-min-height: 24;
+    -fx-pref-width: 24;
+    -fx-pref-height: 24;
+    -fx-max-width: 24;
+    -fx-max-height: 24;
+}
+
+.role-icon-lg {
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.role-icon-patient   { -fx-shape: "M27.2 11.5 C27.2 15.48 23.98 18.7 20 18.7 C16.02 18.7 12.8 15.48 12.8 11.5 C12.8 7.52 16.02 4.3 20 4.3 C23.98 4.3 27.2 7.52 27.2 11.5 Z M5 39 C5 31.5 11.5 22.5 20 22.5 C28.5 22.5 35 31.5 35 39 Z M25.78 31.05 L27.48 28.67 L27.31 26.8 L25.78 25.52 L23.74 25.52 L21.45 26.46 L20 28.16 L18.55 26.46 L16.26 25.52 L14.22 25.52 L12.69 26.8 L12.52 28.67 L14.22 31.05 L20 34.7 Z"; }
+.role-icon-doctor    { -fx-shape: "M27.2 11.5 C27.2 15.48 23.98 18.7 20 18.7 C16.02 18.7 12.8 15.48 12.8 11.5 C12.8 7.52 16.02 4.3 20 4.3 C23.98 4.3 27.2 7.52 27.2 11.5 Z M5 39 C5 31.5 11.5 22.5 20 22.5 C28.5 22.5 35 31.5 35 39 Z M18.2 29.4 L14.4 29.4 L14.4 33 L18.2 33 L18.2 36.8 L21.8 36.8 L21.8 33 L25.6 33 L25.6 29.4 L21.8 29.4 L21.8 25.6 L18.2 25.6 Z"; }
+.role-icon-nurse     { -fx-shape: "M26.2 19.2 C26.2 22.62 23.42 25.4 20 25.4 C16.58 25.4 13.8 22.62 13.8 19.2 C13.8 15.78 16.58 13 20 13 C23.42 13 26.2 15.78 26.2 19.2 Z M10.5 12.2 L12.6 2.6 L27.4 2.6 L29.5 12.2 Z M19 6.4 L16.7 6.4 L16.7 8.4 L19 8.4 L19 10.7 L21 10.7 L21 8.4 L23.3 8.4 L23.3 6.4 L21 6.4 L21 4.1 L19 4.1 Z M5 39 C5 35.2 11.5 26.2 20 26.2 C28.5 26.2 35 35.2 35 39 Z"; }
+.role-icon-secretary { -fx-shape: "M10.1 6 L29.9 6 C31.89 6 33.5 7.61 33.5 9.6 L33.5 34.9 C33.5 36.89 31.89 38.5 29.9 38.5 L10.1 38.5 C8.11 38.5 6.5 36.89 6.5 34.9 L6.5 9.6 C6.5 7.61 8.11 6 10.1 6 Z M16.1 2 L23.9 2 C25.34 2 26.5 3.16 26.5 4.6 L26.5 7.4 C26.5 8.84 25.34 10 23.9 10 L16.1 10 C14.66 10 13.5 8.84 13.5 7.4 L13.5 4.6 C13.5 3.16 14.66 2 16.1 2 Z M21.5 5.8 C21.5 4.97 20.83 4.3 20 4.3 C19.17 4.3 18.5 4.97 18.5 5.8 C18.5 6.63 19.17 7.3 20 7.3 C20.83 7.3 21.5 6.63 21.5 5.8 Z M11.5 19.7 L15.2 19.7 L15.2 16.5 L11.5 16.5 Z M18.2 19.7 L28.5 19.7 L28.5 16.5 L18.2 16.5 Z M11.5 26.2 L15.2 26.2 L15.2 23 L11.5 23 Z M18.2 26.2 L28.5 26.2 L28.5 23 L18.2 23 Z M11.5 32.7 L15.2 32.7 L15.2 29.5 L11.5 29.5 Z M18.2 32.7 L28.5 32.7 L28.5 29.5 L18.2 29.5 Z"; }
+
+/* ---- the rounded square behind each icon ---- */
+.role-tile {
+    -fx-background-radius: 18;
+    -fx-alignment: CENTER;
+    -fx-min-width: 64;
+    -fx-min-height: 64;
+    -fx-pref-width: 64;
+    -fx-pref-height: 64;
+    -fx-max-width: 64;
+    -fx-max-height: 64;
+}
+
+.role-tile-sm {
+    -fx-background-radius: 14;
+    -fx-min-width: 46;
+    -fx-min-height: 46;
+    -fx-pref-width: 46;
+    -fx-pref-height: 46;
+    -fx-max-width: 46;
+    -fx-max-height: 46;
+}
+
+.role-tile-patient {
+    -fx-background-color: linear-gradient(to bottom right, #4b8cff, #2764dc);
+    -fx-effect: dropshadow(gaussian, rgba(39, 100, 220, 0.38), 14, 0.2, 0, 5);
+}
+
+.role-tile-doctor {
+    -fx-background-color: linear-gradient(to bottom right, #2dd4bf, #0f9488);
+    -fx-effect: dropshadow(gaussian, rgba(15, 148, 136, 0.38), 14, 0.2, 0, 5);
+}
+
+.role-tile-nurse {
+    -fx-background-color: linear-gradient(to bottom right, #f472b6, #db2777);
+    -fx-effect: dropshadow(gaussian, rgba(219, 39, 119, 0.36), 14, 0.2, 0, 5);
+}
+
+.role-tile-secretary {
+    -fx-background-color: linear-gradient(to bottom right, #fbbf24, #d97706);
+    -fx-effect: dropshadow(gaussian, rgba(217, 119, 6, 0.38), 14, 0.2, 0, 5);
+}

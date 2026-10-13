@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ph.edu.teleconsultation.system.portal.controller.LimitReachedController"
+      stylesheets="@popup-theme.css"
+      styleClass="visit-card"
+      prefWidth="520" minWidth="520" maxWidth="520"
+      maxHeight="-Infinity">
+
+    <!-- header band: amber, a warning rather than an error -->
+    <HBox styleClass="visit-header,limit-header" alignment="CENTER_LEFT" spacing="14">
+
+        <StackPane styleClass="visit-header-icon">
+            <SVGPath content="M12 3 L22 20 H2 Z M12 10 V14 M12 17 V17.4"
+                     styleClass="visit-pulse"/>
+        </StackPane>
+
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Appointment limit reached" styleClass="visit-title"/>
+            <Label fx:id="subtitleLabel" text="" styleClass="visit-subtitle"/>
+        </VBox>
+
+        <Button text="&#10005;" onAction="#handleClose" styleClass="visit-close"/>
+    </HBox>
+
+    <VBox styleClass="visit-body" spacing="16">
+
+        <!-- one dot per allowed appointment -->
+        <VBox alignment="CENTER" spacing="8">
+            <HBox fx:id="pips" alignment="CENTER" spacing="10"/>
+            <Label fx:id="countLabel" text="" styleClass="limit-count"/>
+        </VBox>
+
+        <VBox spacing="8">
+            <Label text="Your active appointments" styleClass="visit-step-title"/>
+            <VBox fx:id="activeList" spacing="8"/>
+        </VBox>
+    </VBox>
+
+    <VBox styleClass="visit-footer" spacing="12">
+        <Label text="Once one is completed or cancelled, you can book another."
+               wrapText="true" maxWidth="460" styleClass="visit-hint"/>
+        <HBox alignment="CENTER_RIGHT">
+            <Button fx:id="okButton" text="Got it" onAction="#handleClose"
+                    styleClass="popup-primary-button"/>
+        </HBox>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.teleconsultation.system.portal.controller.DoctorController"
+            stylesheets="@doctor-profile.css, @teleconsult-theme.css, @profile-blue.css, @profile-customize.css">
+
+    <left>
+
+        <VBox prefWidth="235"
+              spacing="8"
+              styleClass="sidebar">
+
+            <padding>
+                <Insets top="30"
+                        right="20"
+                        bottom="30"
+                        left="20"/>
+            </padding>
+
+            <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+
+            <Label text="DOCTOR DIRECTORY"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Doctors"
+                        fx:id="doctorsButton"
+                        onAction="#handleDoctors"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+
+                <Button text="Appointments"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Medical Records"
+                        fx:id="recordsButton"
+                        onAction="#handleMedicalRecords"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Button text="Logout"
+                    fx:id="logoutButton"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    styleClass="logout-button"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="main-scroll">
+
+            <VBox spacing="25"
+                  styleClass="main-content">
+
+                <Button text="← Back to Doctors"
+                        fx:id="backButton"
+                        onAction="#handleDoctors"
+                        styleClass="back-button"/>
+
+                <HBox spacing="20"
+                      styleClass="profile-header">
+
+                    <VBox alignment="CENTER"
+                          prefWidth="120"
+                          prefHeight="120"
+                          styleClass="doctor-avatar">
+
+                        <Label fx:id="avatarLabel"
+                               text="DR"
+                               styleClass="avatar-text"/>
+
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS">
+
+                        <Label fx:id="doctorNameLabel"
+                               text="Dr. Doctor Name"
+                               styleClass="doctor-name"/>
+
+                        <Label fx:id="specialtyLabel"
+                               text="General Physician"
+                               styleClass="specialty-label"/>
+
+                        <Label fx:id="licenseLabel"
+                               text="License No. —"
+                               styleClass="license-label"/>
+                        <Label fx:id="bioLabel" text="" wrapText="true" maxWidth="520" visible="false" managed="false" styleClass="profile-bio"/>
+
+                        <Label text="Available for appointments"
+                               styleClass="availability-label"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox spacing="18">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="14"
+                          styleClass="information-card">
+
+                        <Label text="Professional Information"
+                               styleClass="section-title"/>
+
+                        <VBox spacing="12">
+
+                            <HBox spacing="15">
+
+                                <Label text="Specialty"
+                                       styleClass="field-title"/>
+
+                                <Label fx:id="specialtyValueLabel"
+                                       text="General Physician"
+                                       styleClass="field-value"/>
+
+                            </HBox>
+
+                            <HBox spacing="15">
+
+                                <Label text="License Number"
+                                       styleClass="field-title"/>
+
+                                <Label fx:id="licenseValueLabel"
+                                       text="—"
+                                       styleClass="field-value"/>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </VBox>
+
+                    <VBox prefWidth="300"
+                          spacing="14"
+                          styleClass="appointment-card">
+
+                        <Label text="Book Appointment"
+                               styleClass="section-title"/>
+
+                        <Label text="Schedule an appointment with this doctor."
+                               wrapText="true"
+                               styleClass="description"/>
+
+                        <Button text="Book an Appointment"
+                                fx:id="bookAppointmentButton"
+                                onAction="#handleBookAppointment"
+                                styleClass="primary-button"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <VBox spacing="14"
+                      styleClass="schedule-card">
+
+                    <Label text="Schedule"
+                           styleClass="section-title"/>
+
+                    <HBox spacing="12">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="5"
+                              styleClass="schedule-item">
+
+                            <Label text="Available Dates"
+                                   styleClass="schedule-title"/>
+
+                            <Label fx:id="availableDatesLabel"
+                                   text="Schedule information not available."
+                                   wrapText="true"
+                                   styleClass="schedule-text"/>
+
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="5"
+                              styleClass="schedule-item">
+
+                            <Label text="Available Times"
+                                   styleClass="schedule-title"/>
+
+                            <Label fx:id="availableTimesLabel"
+                                   text="Schedule information not available."
+                                   wrapText="true"
+                                   styleClass="schedule-text"/>
+
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

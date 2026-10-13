@@ -1,0 +1,14 @@
+/* Doctor forgot-password: touches that are unique to this page. */
+
+.login-doctor .hero-panel {
+    -fx-background-color: linear-gradient(to top, -role-hero-a, -role-hero-b);
+}
+
+.login-doctor .step-num {
+    -fx-background-radius: 8;
+}
+
+.login-doctor .reset-icon {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}

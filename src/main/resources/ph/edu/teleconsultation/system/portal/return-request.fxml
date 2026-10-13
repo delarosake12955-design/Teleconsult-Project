@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ph.edu.teleconsultation.system.portal.controller.ReturnRequestController"
+      stylesheets="@popup-theme.css"
+      styleClass="visit-card"
+      prefWidth="560" minWidth="560" maxWidth="560"
+      maxHeight="-Infinity">
+
+    <!-- header band: warm red so it reads as "sending something back" -->
+    <HBox styleClass="visit-header,return-header" alignment="CENTER_LEFT" spacing="14">
+
+        <StackPane styleClass="visit-header-icon">
+            <SVGPath content="M9 14 L4 9 L9 4 M4 9 H15 A5 5 0 0 1 15 19 H11"
+                     styleClass="visit-pulse"/>
+        </StackPane>
+
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label text="Return to patient" styleClass="visit-title"/>
+            <Label text="Tell the patient what to fix. You can reconsider it later."
+                   styleClass="visit-subtitle"/>
+        </VBox>
+
+        <Button text="&#10005;" onAction="#handleCancel" styleClass="visit-close"/>
+    </HBox>
+
+    <VBox styleClass="visit-body" spacing="16">
+
+        <!-- who and what -->
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label fx:id="patientLabel" text="Patient" styleClass="visit-patient"/>
+            <Label fx:id="typeLabel" text="Regular" styleClass="visit-type"/>
+        </HBox>
+
+        <VBox styleClass="visit-node,return-node" spacing="3">
+            <Label text="REQUEST" styleClass="visit-node-tag"/>
+            <Label fx:id="requestLabel" text="" wrapText="true" styleClass="visit-node-value"/>
+            <Label fx:id="doctorLabel" text="" wrapText="true" styleClass="visit-node-sub"/>
+        </VBox>
+
+        <!-- quick reasons -->
+        <VBox spacing="8">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="1" styleClass="visit-step"/>
+                <Label text="Pick a reason (optional)" styleClass="visit-step-title"/>
+            </HBox>
+            <FlowPane fx:id="reasonChips" hgap="8" vgap="8" prefWrapLength="500"/>
+        </VBox>
+
+        <!-- free text -->
+        <VBox spacing="8">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="2" styleClass="visit-step"/>
+                <Label text="Reason for the patient" styleClass="visit-step-title"/>
+            </HBox>
+            <TextArea fx:id="reasonArea" wrapText="true" prefRowCount="3"
+                      promptText="e.g. Please add your symptoms and the reason for the visit"
+                      styleClass="visit-field,return-area"/>
+        </VBox>
+
+    </VBox>
+
+    <!-- footer -->
+    <VBox styleClass="visit-footer" spacing="12">
+        <Label text="The patient is notified right away and the time slot is freed. The request moves to the Rejected list, where you can reconsider it."
+               wrapText="true" maxWidth="500" styleClass="visit-hint"/>
+        <HBox alignment="CENTER_RIGHT" spacing="12">
+            <Button text="Cancel" onAction="#handleCancel" styleClass="popup-secondary-button"/>
+            <Button fx:id="sendButton" text="Return to patient" onAction="#handleSend"
+                    styleClass="popup-danger-button"/>
+        </HBox>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,234 @@
+/* Register page: "Choose Your Role" (glass cards with character art) */
+
+.page {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color:
+        radial-gradient(center 0% 0%, radius 38%, rgba(190, 212, 255, 0.70), rgba(190, 212, 255, 0)),
+        radial-gradient(center 100% 0%, radius 30%, rgba(170, 200, 255, 0.55), rgba(170, 200, 255, 0)),
+        radial-gradient(center 100% 100%, radius 42%, rgba(160, 190, 252, 0.75), rgba(160, 190, 252, 0)),
+        radial-gradient(center 0% 100%, radius 36%, rgba(180, 205, 253, 0.65), rgba(180, 205, 253, 0)),
+        linear-gradient(to bottom right, #F8FBFF, #EAF1FF);
+}
+
+.header, .footer, .content, .role-grid {
+    -fx-background-color: transparent;
+}
+
+.register-scroll, .register-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ---- header ---- */
+.logo-tele {
+    -fx-text-fill: #0B1B4D;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+
+.logo-consult {
+    -fx-text-fill: #1F6BFF;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+
+.logo-subtitle {
+    -fx-text-fill: #6B7BAA;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.tagline {
+    -fx-text-fill: #5C6FA3;
+    -fx-font-size: 13px;
+}
+
+.back-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: #BCD0FA;
+    -fx-border-radius: 22;
+    -fx-text-fill: #2864E6;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #7FA3F2;
+}
+
+/* ---- heading ---- */
+.eyebrow {
+    -fx-text-fill: #2F6BFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.title {
+    -fx-text-fill: #0B1B4D;
+    -fx-font-size: 54px;
+    -fx-font-weight: bold;
+}
+
+.title-accent {
+    -fx-text-fill: #1F6BFF;
+    -fx-font-size: 54px;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: #5C6FA3;
+    -fx-font-size: 17px;
+    -fx-line-spacing: 4;
+}
+
+/* ---- role cards ---- */
+.role-card {
+    -fx-background-radius: 34;
+    -fx-border-radius: 34;
+    -fx-border-color: rgba(255, 255, 255, 0.95);
+    -fx-border-width: 1.5;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.20), 30, 0.12, 0, 12);
+}
+
+.role-card:hover {
+    -fx-translate-y: -6;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.34), 38, 0.16, 0, 16);
+}
+
+.role-card-body {
+    -fx-padding: 14 22 24 22;
+}
+
+.role-art {
+    -fx-padding: 0 0 2 0;
+}
+
+.role-name {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 4;
+}
+
+.role-desc {
+    -fx-text-fill: #5F6F9E;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 3;
+    -fx-padding: 0 0 0 4;
+}
+
+.role-pill {
+    -fx-background-radius: 26;
+    -fx-padding: 12 30;
+    -fx-max-width: 170;
+}
+
+.role-pill-text {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.role-card-doctor {
+    -fx-background-color: linear-gradient(to bottom, #D6E6FF 0%, #F2F7FF 60%, #FBFDFF 100%);
+}
+
+.role-name-doctor {
+    -fx-text-fill: #102A6B;
+}
+
+.role-pill-doctor {
+    -fx-background-color: linear-gradient(to right, #2F80FF, #1F6BF0);
+    -fx-effect: dropshadow(gaussian, rgba(31,107,240,0.45), 14, 0.2, 0, 5);
+}
+
+.role-card-patient {
+    -fx-background-color: linear-gradient(to bottom, #CFF5EC 0%, #F0FBF9 60%, #FAFFFE 100%);
+}
+
+.role-name-patient {
+    -fx-text-fill: #0B3B4D;
+}
+
+.role-pill-patient {
+    -fx-background-color: linear-gradient(to right, #19C2A6, #0FA38C);
+    -fx-effect: dropshadow(gaussian, rgba(15,163,140,0.45), 14, 0.2, 0, 5);
+}
+
+.role-card-nurse {
+    -fx-background-color: linear-gradient(to bottom, #FFDCEF 0%, #FFF2F9 60%, #FFFBFD 100%);
+}
+
+.role-name-nurse {
+    -fx-text-fill: #4A1D5E;
+}
+
+.role-pill-nurse {
+    -fx-background-color: linear-gradient(to right, #F2579E, #E23E86);
+    -fx-effect: dropshadow(gaussian, rgba(226,62,134,0.42), 14, 0.2, 0, 5);
+}
+
+.role-card-secretary {
+    -fx-background-color: linear-gradient(to bottom, #E3DCFF 0%, #F4F1FF 60%, #FCFBFF 100%);
+}
+
+.role-name-secretary {
+    -fx-text-fill: #35216B;
+}
+
+.role-pill-secretary {
+    -fx-background-color: linear-gradient(to right, #7C5DFF, #6A45EE);
+    -fx-effect: dropshadow(gaussian, rgba(106,69,238,0.42), 14, 0.2, 0, 5);
+}
+
+/* ---- notes and links ---- */
+.register-note {
+    -fx-text-fill: #6B7BAA;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 3;
+}
+
+.small-text {
+    -fx-text-fill: #5C6FA3;
+    -fx-font-size: 14px;
+}
+
+.link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1F6BFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.link-button:hover {
+    -fx-underline: true;
+}
+
+/* ---- footer ---- */
+.footer-line {
+    -fx-background-color: rgba(120, 140, 196, 0.45);
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+    -fx-min-height: 1;
+}
+
+.ecg {
+    -fx-fill: transparent;
+    -fx-stroke: #7C8FC4;
+    -fx-stroke-width: 2;
+}
+
+.footer-text {
+    -fx-text-fill: #7A89B5;
+    -fx-font-size: 12px;
+}

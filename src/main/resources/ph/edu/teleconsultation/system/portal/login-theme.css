@@ -1,0 +1,335 @@
+/*
+ * TeleConsult sign-in pages: shared structure for patient / doctor / nurse / secretary.
+ * Same glow background, logo header, glass card and ECG footer as the registration pages.
+ * Each role file (login-patient.css ...) defines the -role-* colours used below.
+ */
+
+.login-page {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-background-color:
+        radial-gradient(center 0% 0%, radius 38%, rgba(190, 212, 255, 0.70), rgba(190, 212, 255, 0)),
+        radial-gradient(center 100% 0%, radius 30%, rgba(170, 200, 255, 0.55), rgba(170, 200, 255, 0)),
+        radial-gradient(center 100% 100%, radius 42%, rgba(160, 190, 252, 0.75), rgba(160, 190, 252, 0)),
+        radial-gradient(center 0% 100%, radius 36%, rgba(180, 205, 253, 0.65), rgba(180, 205, 253, 0)),
+        linear-gradient(to bottom right, #F8FBFF, #EAF1FF);
+}
+
+/* ---- header ---- */
+.login-page .header {
+    -fx-background-color: transparent;
+}
+
+.login-page .logo-tele {
+    -fx-text-fill: #0B1B4D;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.login-page .logo-consult {
+    -fx-text-fill: #1F6BFF;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.login-page .logo-subtitle {
+    -fx-text-fill: #6B7BAA;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.login-page .role-badge {
+    -fx-background-color: -role-soft;
+    -fx-background-radius: 20;
+    -fx-border-color: -role-main;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 7 14;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -role-main;
+}
+
+.login-page .back-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: #BCD0FA;
+    -fx-border-radius: 22;
+    -fx-text-fill: #2864E6;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22;
+    -fx-cursor: hand;
+}
+
+.login-page .back-button:hover {
+    -fx-background-color: #EEF4FF;
+    -fx-border-color: #7FA3F2;
+}
+
+/* ---- page area ---- */
+.login-page .login-scroll,
+.login-page .login-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.login-page .main-container {
+    -fx-background-color: transparent;
+}
+
+/* ---- split card ---- */
+.login-page .login-split {
+    -fx-background-color: white;
+    -fx-background-radius: 34;
+    -fx-border-color: rgba(255, 255, 255, 0.95);
+    -fx-border-radius: 34;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.26), 38, 0.12, 0, 14);
+}
+
+/* ---- role panel (left) ---- */
+.login-page .hero-panel {
+    -fx-background-radius: 34 0 0 34;
+}
+
+.login-page .hero-content {
+    -fx-padding: 26 30 26 30;
+}
+
+.login-page .hero-orb-big {
+    -fx-background-color: rgba(255, 255, 255, 0.13);
+    -fx-min-width: 230; -fx-min-height: 230; -fx-max-width: 230; -fx-max-height: 230;
+    -fx-background-radius: 230;
+    -fx-translate-x: 70;
+    -fx-translate-y: -70;
+}
+
+.login-page .hero-orb-small {
+    -fx-background-color: rgba(255, 255, 255, 0.10);
+    -fx-min-width: 120; -fx-min-height: 120; -fx-max-width: 120; -fx-max-height: 120;
+    -fx-background-radius: 120;
+    -fx-translate-x: -40;
+    -fx-translate-y: 40;
+}
+
+.login-page .hero-chip {
+    -fx-background-color: rgba(255, 255, 255, 0.22);
+    -fx-background-radius: 20;
+    -fx-padding: 5 13;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.login-page .hero-art {
+    -fx-background-color: rgba(255, 255, 255, 0.90);
+    -fx-background-radius: 26;
+    -fx-padding: 8 10 8 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.16), 18, 0.1, 0, 6);
+}
+
+.login-page .hero-title {
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: 1;
+}
+
+.login-page .hero-sub {
+    -fx-text-fill: rgba(255, 255, 255, 0.88);
+    -fx-font-size: 12.5px;
+    -fx-line-spacing: 2;
+}
+
+.login-page .feature-icon {
+    -fx-background-color: rgba(255, 255, 255, 0.22);
+    -fx-background-radius: 20;
+    -fx-min-width: 36; -fx-min-height: 36; -fx-max-width: 36; -fx-max-height: 36;
+}
+
+.login-page .feature-glyph {
+    -fx-fill: white;
+    -fx-scale-x: 0.62;
+    -fx-scale-y: 0.62;
+}
+
+.login-page .feature-title {
+    -fx-text-fill: white;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+}
+
+.login-page .feature-desc {
+    -fx-text-fill: rgba(255, 255, 255, 0.82);
+    -fx-font-size: 11px;
+}
+
+/* ---- form (right) ---- */
+.login-page .form-panel {
+    -fx-background-radius: 0 34 34 0;
+    -fx-padding: 34 46 28 46;
+}
+
+.login-page .eyebrow {
+    -fx-text-fill: -role-main;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.login-page .title {
+    -fx-text-fill: -role-dark;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.login-page .subtitle {
+    -fx-text-fill: #5F6F9E;
+    -fx-font-size: 13px;
+}
+
+.login-page .field-label {
+    -fx-text-fill: #3F4E78;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.login-page .login-input {
+    -fx-background-color: #F5F8FD;
+    -fx-background-radius: 14;
+    -fx-border-color: #DCE4F2;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 12 16;
+    -fx-font-size: 13px;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #9AA6BF;
+}
+
+.login-page .login-input:hover {
+    -fx-border-color: #C4D3EF;
+}
+
+.login-page .login-input:focused {
+    -fx-background-color: white;
+    -fx-border-color: -role-main;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, -role-shadow, 10, 0.08, 0, 2);
+}
+
+.login-page .show-password {
+    -fx-font-size: 12px;
+    -fx-text-fill: #62708F;
+    -fx-cursor: hand;
+}
+
+.login-page .show-password .box {
+    -fx-background-color: white;
+    -fx-border-color: #C7D4E8;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.login-page .show-password:selected .box {
+    -fx-background-color: -role-main;
+    -fx-border-color: -role-main;
+}
+
+.login-page .show-password:selected .mark {
+    -fx-background-color: white;
+}
+
+.login-page .message {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C25C67;
+    -fx-min-height: 18;
+}
+
+.login-page .login-submit {
+    -fx-background-color: linear-gradient(to right, -role-main2, -role-main);
+    -fx-background-radius: 26;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 14 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, -role-shadow, 14, 0.2, 0, 5);
+}
+
+.login-page .login-submit:hover {
+    -fx-background-color: linear-gradient(to right, -role-hover1, -role-hover2);
+}
+
+.login-page .login-submit:pressed {
+    -fx-background-color: -role-main;
+}
+
+.login-page .login-submit:disabled {
+    -fx-opacity: 0.7;
+}
+
+.login-page .small-text {
+    -fx-text-fill: #5C6FA3;
+    -fx-font-size: 12px;
+}
+
+.login-page .link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -role-main;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.login-page .link-button:hover {
+    -fx-underline: true;
+}
+
+.login-page .form-divider {
+    -fx-background-color: #E3EAF5;
+}
+
+/* ---- "sign in as another role" chips ---- */
+.login-page .switch-chip {
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 5 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.login-page .switch-chip-patient   { -fx-background-color: #E3F8F3; -fx-border-color: #9ADFD1; -fx-text-fill: #0B7F78; }
+.login-page .switch-chip-doctor    { -fx-background-color: #E6EFFF; -fx-border-color: #A9C4F8; -fx-text-fill: #1646B8; }
+.login-page .switch-chip-nurse     { -fx-background-color: #FFE8F3; -fx-border-color: #F4B3D3; -fx-text-fill: #B02A73; }
+.login-page .switch-chip-secretary { -fx-background-color: #EEE9FF; -fx-border-color: #C6B8F6; -fx-text-fill: #4A2BC0; }
+
+.login-page .switch-chip:hover {
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(gaussian, rgba(50, 85, 160, 0.20), 8, 0.1, 0, 3);
+}
+
+/* ---- footer ---- */
+.login-page .footer {
+    -fx-background-color: transparent;
+}
+
+.login-page .footer-line {
+    -fx-background-color: rgba(120, 140, 196, 0.45);
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+    -fx-min-height: 1;
+}
+
+.login-page .ecg {
+    -fx-fill: transparent;
+    -fx-stroke: #7C8FC4;
+    -fx-stroke-width: 2;
+}
+
+.login-page .footer-text {
+    -fx-text-fill: #7A89B5;
+    -fx-font-size: 12px;
+}

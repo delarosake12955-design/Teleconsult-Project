@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.teleconsultation.system.portal.controller.PatientRegistrationController"
+            stylesheets="@patient-register.css, @date-picker-theme.css, @password-toggle.css, @register-theme.css"
+            styleClass="page,reg-page,reg-patient">
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="12"
+              styleClass="header">
+
+            <padding>
+                <Insets top="22"
+                        right="50"
+                        bottom="22"
+                        left="50"/>
+            </padding>
+
+            <ImageView fitWidth="50" preserveRatio="true" smooth="true">
+                <image>
+                    <Image url="@register-logo.png"/>
+                </image>
+            </ImageView>
+
+            <VBox spacing="1">
+
+                <HBox alignment="BOTTOM_LEFT">
+                    <Label text="Tele" styleClass="logo-tele"/>
+                    <Label text="Consult" styleClass="logo-consult"/>
+                </HBox>
+
+                <Label text="M E D I C A L   S Y S T E M"
+                       styleClass="logo-subtitle"/>
+
+            </VBox>
+
+            <Label text="PATIENT REGISTRATION"
+                   styleClass="registration-badge"/>
+
+            <HBox HBox.hgrow="ALWAYS"/>
+
+            <Button text="←  Back"
+                    fx:id="backButton"
+                    onAction="#handleBack"
+                    styleClass="back-button"/>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    fitToHeight="false"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED"
+                    styleClass="registration-scroll">
+
+            <content>
+
+                <StackPane styleClass="main-container">
+
+                    <StackPane styleClass="glass-layer-one"/>
+                    <StackPane styleClass="glass-layer-two"/>
+                    <StackPane styleClass="glass-layer-three"/>
+
+                    <VBox alignment="CENTER"
+                          spacing="18"
+                          maxWidth="520"
+                          styleClass="form-card">
+
+                        <VBox alignment="CENTER"
+                              spacing="6">
+
+                            <ImageView fitWidth="250" preserveRatio="true" smooth="true">
+                                <image>
+                                    <Image url="@register-patient.png"/>
+                                </image>
+                            </ImageView>
+
+                            <Label text="Patient Registration"
+                                   styleClass="title"/>
+
+                            <Label text="Create your TeleConsult patient account."
+                                   styleClass="subtitle"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Full Name"
+                                   styleClass="field-label"/>
+
+                            <TextField fx:id="fullNameField"
+                                       promptText="Enter your full name"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Email"
+                                   styleClass="field-label"/>
+
+                            <TextField fx:id="emailField"
+                                       promptText="Enter your email"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Password"
+                                   styleClass="field-label"/>
+
+                            <PasswordField fx:id="passwordField"
+                                           promptText="Create a password"
+                                           styleClass="input-field"/>
+
+                            <TextField fx:id="visiblePasswordField"
+                                       promptText="Create a password"
+                                       visible="false"
+                                       managed="false"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Confirm Password"
+                                   styleClass="field-label"/>
+
+                            <PasswordField fx:id="confirmPasswordField"
+                                           promptText="Re-enter your password"
+                                           styleClass="input-field"/>
+
+                            <TextField fx:id="visibleConfirmPasswordField"
+                                       promptText="Re-enter your password"
+                                       visible="false"
+                                       managed="false"
+                                       styleClass="input-field"/>
+
+                            <CheckBox fx:id="showPasswordCheckBox"
+                                      text="Show password"
+                                      onAction="#handleShowPassword"
+                                      styleClass="show-password"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Date of Birth"
+                                   styleClass="field-label"/>
+
+                            <DatePicker fx:id="dateOfBirthPicker"
+                                        promptText="Select your date of birth"
+                                        maxWidth="Infinity"
+                                        styleClass="date-picker"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Phone Number"
+                                   styleClass="field-label"/>
+
+                            <TextField fx:id="phoneNumberField"
+                                       promptText="Enter your phone number"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Address"
+                                   styleClass="field-label"/>
+
+                            <TextField fx:id="addressField"
+                                       promptText="Enter your address"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <VBox spacing="7">
+
+                            <Label text="Patient Type"
+                                   styleClass="field-label"/>
+
+                            <Label text="Seniors (60 and above) are recognised automatically from your date of birth. Seniors and PWDs are reviewed first."
+                                   wrapText="true"
+                                   styleClass="patient-type-note"/>
+
+                            <CheckBox fx:id="pwdCheckBox"
+                                      text="I am a Person with Disability (PWD)"
+                                      styleClass="show-password"/>
+
+                            <TextField fx:id="pwdIdField"
+                                       promptText="PWD ID number, e.g. PWD-2026-0001"
+                                       visible="false"
+                                       managed="false"
+                                       styleClass="input-field"/>
+
+                        </VBox>
+
+                        <Label fx:id="messageLabel"
+                               text=""
+                               wrapText="true"
+                               styleClass="message"/>
+
+                        <Button text="Create Patient Account  →"
+                                fx:id="registerButton"
+                                onAction="#handleRegister"
+                                maxWidth="Infinity"
+                                styleClass="register-button"/>
+
+                    </VBox>
+
+                </StackPane>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" spacing="6" styleClass="footer">
+            <padding>
+                <Insets top="8" right="20" bottom="14" left="20"/>
+            </padding>
+
+            <HBox alignment="CENTER" spacing="14">
+                <Region styleClass="footer-line" minWidth="150" prefWidth="150" maxWidth="150"/>
+                <SVGPath content="M0 14 L16 14 L22 14 L27 3 L35 26 L41 14 L62 14" styleClass="ecg"/>
+                <Region styleClass="footer-line" minWidth="150" prefWidth="150" maxWidth="150"/>
+            </HBox>
+
+            <Label text="TeleConsult Medical System  •  Patient Portal" styleClass="footer-text"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

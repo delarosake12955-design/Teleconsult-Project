@@ -1,0 +1,112 @@
+/* ==========================================================
+   TeleConsult date picker - blue calendar popup
+   ========================================================== */
+
+.date-picker-popup {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 18;
+    -fx-border-color: #CFE0FF;
+    -fx-border-width: 1;
+    -fx-border-radius: 18;
+    -fx-padding: 0 0 12 0;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.30), 30, 0.12, 0, 12);
+}
+
+/* ---- header: month / year ---- */
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: linear-gradient(to right, #1d4ed8 0%, #3478f6 55%, #5aa2ff 100%);
+    -fx-background-radius: 18 18 0 0;
+    -fx-padding: 12 14 12 14;
+}
+
+.date-picker-popup .month-year-pane .spinner {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .month-year-pane .spinner .button {
+    -fx-background-color: rgba(255, 255, 255, 0.18);
+    -fx-background-radius: 10;
+    -fx-padding: 6 9 6 9;
+    -fx-cursor: hand;
+}
+
+.date-picker-popup .month-year-pane .spinner .button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.34);
+}
+
+.date-picker-popup .month-year-pane .spinner .button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.50);
+}
+
+.date-picker-popup .month-year-pane .left-arrow,
+.date-picker-popup .month-year-pane .right-arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+/* ---- weekday names ---- */
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: transparent;
+    -fx-padding: 10 12 0 12;
+}
+
+.date-picker-popup .day-name-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3478f6;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* ---- day cells ---- */
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-border-radius: 12;
+    -fx-text-fill: #101A43;
+    -fx-font-size: 13px;
+    -fx-min-width: 40;
+    -fx-min-height: 36;
+    -fx-cursor: hand;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #E4EEFF;
+    -fx-text-fill: #1d4ed8;
+}
+
+.date-picker-popup .day-cell.previous-month,
+.date-picker-popup .day-cell.next-month {
+    -fx-text-fill: #A9B8D6;
+}
+
+.date-picker-popup .day-cell.today {
+    -fx-border-color: #3478f6;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #1d4ed8;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-cell:selected,
+.date-picker-popup .day-cell.selected {
+    -fx-background-color: linear-gradient(to bottom right, #3478f6, #1d4ed8);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.45), 10, 0.1, 0, 3);
+}
+
+.date-picker-popup .day-cell:disabled {
+    -fx-opacity: 0.35;
+    -fx-cursor: default;
+    -fx-background-color: transparent;
+}
+
+/* ---- text field of the picker ---- */
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #3478f6;
+}

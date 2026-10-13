@@ -1,0 +1,158 @@
+/* ==========================================================
+   TeleConsult profile pages - blue theme (all roles)
+   Loaded last on every *-profile.fxml so it overrides the
+   older green styles inside each page's own stylesheet.
+   ========================================================== */
+
+/* ---- page text ---- */
+.page-title {
+    -fx-text-fill: #101A43;
+}
+
+.page-description {
+    -fx-text-fill: #62708F;
+}
+
+/* ---- blue header card ---- */
+.profile-header {
+    -fx-background-color: linear-gradient(to right, #1d4ed8 0%, #3478f6 55%, #5aa2ff 100%);
+    -fx-background-radius: 26;
+    -fx-border-color: transparent;
+    -fx-padding: 30;
+    -fx-alignment: CENTER_LEFT;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.35), 26, 0.12, 0, 10);
+}
+
+/* avatar circle: white with a soft blue glow */
+.profile-header .profile-avatar,
+.profile-header .doctor-avatar {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 80;
+    -fx-border-color: rgba(255, 255, 255, 0.55);
+    -fx-border-width: 4;
+    -fx-border-radius: 80;
+    -fx-effect: dropshadow(gaussian, rgba(16, 26, 67, 0.28), 16, 0.15, 0, 5);
+}
+
+.profile-header .avatar-text {
+    -fx-text-fill: #1d4ed8;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* name, role pill, e-mail: white on blue so they are always readable */
+.profile-header .profile-name,
+.profile-header .doctor-name {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.profile-header .profile-role,
+.profile-header .specialty-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.22);
+    -fx-background-radius: 20;
+    -fx-padding: 4 14 4 14;
+}
+
+.profile-header .profile-email,
+.profile-header .license-label {
+    -fx-text-fill: rgba(255, 255, 255, 0.92);
+    -fx-font-size: 13px;
+}
+
+/* ---- details card ---- */
+.information-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 22;
+    -fx-border-color: #CFE0FF;
+    -fx-border-width: 1;
+    -fx-border-radius: 22;
+    -fx-padding: 26;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.10), 18, 0.08, 0, 6);
+}
+
+.section-title {
+    -fx-text-fill: #101A43;
+}
+
+.field-label {
+    -fx-text-fill: #3F4D6E;
+    -fx-font-weight: bold;
+}
+
+.information-card .text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14;
+    -fx-border-color: #DCE5F4;
+    -fx-border-width: 1.2;
+    -fx-border-radius: 14;
+    -fx-text-fill: #101A43;
+    -fx-prompt-text-fill: #A9B8D6;
+    -fx-padding: 11 14 11 14;
+}
+
+.information-card .text-field:focused {
+    -fx-border-color: #3478f6;
+    -fx-border-width: 1.8;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.28), 10, 0.1, 0, 0);
+}
+
+/* fields that do not apply to this account type */
+.information-card .text-field:disabled {
+    -fx-background-color: #F5F8FF;
+    -fx-opacity: 0.75;
+}
+
+/* ---- save button ---- */
+.information-card .primary-button {
+    -fx-background-color: linear-gradient(to right, #2563eb, #3478f6);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14;
+    -fx-padding: 12 26 12 26;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.35), 12, 0.1, 0, 4);
+}
+
+.information-card .primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #1d4ed8, #2f6df0);
+}
+
+/* ---- account side cards (status / account type) ---- */
+.account-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-border-color: #CFE0FF;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(52, 120, 246, 0.10), 16, 0.08, 0, 5);
+}
+
+.account-title {
+    -fx-text-fill: #101A43;
+    -fx-font-weight: bold;
+}
+
+.account-value,
+.status-label {
+    -fx-text-fill: #1d4ed8;
+    -fx-font-weight: bold;
+}
+
+/* ---- doctor "view profile" page extras ---- */
+.schedule-card,
+.appointment-card {
+    -fx-background-color: #F5F8FF;
+    -fx-background-radius: 18;
+    -fx-border-color: #CFE0FF;
+    -fx-border-radius: 18;
+}
+
+.availability-label,
+.field-title {
+    -fx-text-fill: #3478f6;
+    -fx-font-weight: bold;
+}

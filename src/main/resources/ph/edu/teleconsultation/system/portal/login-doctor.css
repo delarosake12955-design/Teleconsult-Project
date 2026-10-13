@@ -1,0 +1,38 @@
+/*
+ * Doctor sign-in: colour palette + the small touches that make this page its own.
+ * Layout and shared controls are in login-theme.css (loaded first).
+ */
+
+.login-doctor {
+    -role-dark:   #102A6B;
+    -role-main:   #1F6BF0;
+    -role-main2:  #2F80FF;
+    -role-hover1: #4A92FF;
+    -role-hover2: #2F7BFA;
+    -role-soft:   #E6EFFF;
+    -role-tint:   #D6E6FF;
+    -role-shadow: rgba(31,107,240,0.45);
+    -role-hero-a: #2F80FF;
+    -role-hero-b: #1646B8;
+}
+
+.login-doctor .hero-panel {
+    -fx-background-color: linear-gradient(to bottom, -role-hero-a, -role-hero-b);
+}
+
+.login-doctor .login-submit {
+    -fx-background-radius: 14;
+}
+
+.login-doctor .login-input {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+/* Doctor: crisp and clinical; a thin blue rule on the form edge. */
+.login-doctor .form-panel {
+    -fx-background-color: linear-gradient(to bottom, #E8F0FF 0%, #FFFFFF 38%);
+    -fx-border-color: transparent transparent transparent -role-main;
+    -fx-border-width: 0 0 0 3;
+}
+.login-doctor .hero-orb-big { -fx-opacity: 0.55; }

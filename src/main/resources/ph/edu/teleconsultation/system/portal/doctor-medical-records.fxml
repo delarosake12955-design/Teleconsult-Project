@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.teleconsultation.system.portal.controller.MedicalRecordController"
+            stylesheets="@doctor-medical-records.css, @teleconsult-theme.css">
+
+    <left>
+
+        <VBox prefWidth="235"
+              spacing="8"
+              styleClass="sidebar doctor-page">
+
+            <padding>
+                <Insets top="30" right="20" bottom="30" left="20"/>
+            </padding>
+
+            <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+
+            <Label text="MEDICAL RECORDS"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Appointments"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Requests"
+                        fx:id="requestsButton"
+                        onAction="#handleRequests"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Medical Records"
+                        fx:id="recordsButton"
+                        onAction="#handleMedicalRecords"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Button text="Logout"
+                    fx:id="logoutButton"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    styleClass="logout-button"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="main-scroll">
+
+            <VBox spacing="25"
+                  styleClass="main-content">
+
+                <VBox spacing="7">
+
+                    <Label text="Medical Records"
+                           styleClass="page-title"/>
+
+                    <Label text="View medical history and consultation records."
+                           styleClass="page-description"/>
+
+                </VBox>
+
+                <HBox spacing="16">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Total Records"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="totalRecordsLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Latest Diagnosis"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="latestDiagnosisLabel"
+                               text="No records"
+                               wrapText="true"
+                               styleClass="summary-value"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Latest Visit"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="latestDateLabel"
+                               text="No records"
+                               styleClass="summary-value"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <VBox spacing="14"
+                      styleClass="table-card">
+
+                    <HBox alignment="CENTER_LEFT">
+
+                        <VBox spacing="5"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label text="Medical History"
+                                   styleClass="section-title"/>
+
+                            <Label text="Review diagnoses, treatments, and vital signs recorded during consultations."
+                                   styleClass="table-description"/>
+
+                        </VBox>
+
+                        <Button text="Refresh"
+                                fx:id="refreshButton"
+                                onAction="#handleRefresh"
+                                styleClass="secondary-button"/>
+
+                    </HBox>
+
+                    <TableView fx:id="medicalRecordTable"
+                               prefHeight="400"
+                               styleClass="record-table">
+
+                        <columns>
+
+                            <TableColumn fx:id="patientColumn"
+                                         text="Patient"
+                                         prefWidth="150"/>
+
+                            <TableColumn fx:id="doctorColumn"
+                                         text="Doctor"
+                                         prefWidth="150"/>
+
+                            <TableColumn fx:id="dateColumn"
+                                         text="Date"
+                                         prefWidth="110"/>
+
+                            <TableColumn fx:id="diagnosisColumn"
+                                         text="Diagnosis"
+                                         prefWidth="180"/>
+
+                            <TableColumn fx:id="treatmentColumn"
+                                         text="Treatment"
+                                         prefWidth="200"/>
+
+                        </columns>
+
+                        <placeholder>
+
+                            <Label text="No medical records found."
+                                   styleClass="empty-label"/>
+
+                        </placeholder>
+
+                    </TableView>
+
+                </VBox>
+
+                <VBox spacing="14"
+                      styleClass="details-card">
+
+                    <Label text="Selected Record"
+                           styleClass="section-title"/>
+
+                    <HBox spacing="18">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="5"
+                              styleClass="detail-item">
+
+                            <Label text="Diagnosis"
+                                   styleClass="detail-title"/>
+
+                            <Label fx:id="selectedDiagnosisLabel"
+                                   text="Select a record from the table."
+                                   wrapText="true"
+                                   styleClass="detail-value"/>
+
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="5"
+                              styleClass="detail-item">
+
+                            <Label text="Treatment"
+                                   styleClass="detail-title"/>
+
+                            <Label fx:id="selectedTreatmentLabel"
+                                   text="Select a record from the table."
+                                   wrapText="true"
+                                   styleClass="detail-value"/>
+
+                        </VBox>
+
+                    </HBox>
+
+                    <VBox spacing="10">
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Vital Signs" styleClass="detail-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <HBox fx:id="vitalActions" alignment="CENTER_RIGHT"/>
+                        </HBox>
+
+                        <Label fx:id="vitalEmptyLabel"
+                               text="Select a medical record to view vital signs."
+                               wrapText="true"
+                               styleClass="vital-empty"/>
+
+                        <VBox fx:id="vitalContent" spacing="10" visible="false" managed="false">
+
+                            <GridPane hgap="12" vgap="12">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                                    <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                                </columnConstraints>
+                                <VBox GridPane.columnIndex="0" spacing="6" styleClass="vital-tile-temp">
+                                    <Label text="Temperature" styleClass="vital-name"/>
+                                    <HBox spacing="5" alignment="BASELINE_LEFT">
+                                        <Label fx:id="vitalTemperatureLabel" text="--" styleClass="vital-number-temp"/>
+                                        <Label text="&#176;C" styleClass="vital-unit"/>
+                                    </HBox>
+                                    <Label fx:id="vitalTemperatureStatus" styleClass="vital-status"/>
+                                </VBox>
+                                <VBox GridPane.columnIndex="1" spacing="6" styleClass="vital-tile-heart">
+                                    <Label text="Heart rate" styleClass="vital-name"/>
+                                    <HBox spacing="5" alignment="BASELINE_LEFT">
+                                        <Label fx:id="vitalHeartRateLabel" text="--" styleClass="vital-number-heart"/>
+                                        <Label text="bpm" styleClass="vital-unit"/>
+                                    </HBox>
+                                    <Label fx:id="vitalHeartRateStatus" styleClass="vital-status"/>
+                                </VBox>
+                                <VBox GridPane.columnIndex="2" spacing="6" styleClass="vital-tile-pressure">
+                                    <Label text="Blood pressure" styleClass="vital-name"/>
+                                    <HBox spacing="5" alignment="BASELINE_LEFT">
+                                        <Label fx:id="vitalBloodPressureLabel" text="--" styleClass="vital-number-pressure"/>
+                                        <Label text="mmHg" styleClass="vital-unit"/>
+                                    </HBox>
+                                    <Label fx:id="vitalBloodPressureStatus" styleClass="vital-status"/>
+                                </VBox>
+                                <VBox GridPane.columnIndex="3" spacing="6" styleClass="vital-tile-breath">
+                                    <Label text="Respiratory rate" styleClass="vital-name"/>
+                                    <HBox spacing="5" alignment="BASELINE_LEFT">
+                                        <Label fx:id="vitalRespiratoryLabel" text="--" styleClass="vital-number-breath"/>
+                                        <Label text="per min" styleClass="vital-unit"/>
+                                    </HBox>
+                                    <Label fx:id="vitalRespiratoryStatus" styleClass="vital-status"/>
+                                </VBox>
+                            </GridPane>
+
+                            <Label fx:id="vitalMetaLabel" styleClass="vital-meta" visible="false" managed="false"/>
+
+                            <Label text="Typical adult ranges are shown for reference only. Your doctor will explain what your results mean."
+                                   wrapText="true"
+                                   styleClass="vital-footnote"/>
+
+                        </VBox>
+
+                    </VBox>
+
+                </VBox>
+
+            </VBox>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

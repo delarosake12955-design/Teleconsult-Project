@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ph.edu.teleconsultation.system.portal.controller.ConsultationController"
+            stylesheets="@nurse-consultation.css, @teleconsult-theme.css">
+
+    <left>
+
+        <VBox prefWidth="235"
+              spacing="8"
+              styleClass="sidebar nurse-page">
+
+            <padding>
+                <Insets top="30" right="20" bottom="30" left="20"/>
+            </padding>
+
+            <HBox alignment="BOTTOM_LEFT">
+                        <Label text="Tele" styleClass="logo-tele"/>
+                        <Label text="Consult" styleClass="logo-consult"/>
+                    </HBox>
+
+            <Label text="CONSULTATION"
+                   styleClass="portal-label"/>
+
+            <VBox spacing="6"
+                  VBox.vgrow="ALWAYS">
+
+                <Button text="Dashboard"
+                        fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Appointments"
+                        fx:id="appointmentsButton"
+                        onAction="#handleAppointments"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Requests"
+                        fx:id="requestsButton"
+                        onAction="#handleRequests"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Consultation"
+                        fx:id="consultationButton"
+                        onAction="#handleConsultation"
+                        maxWidth="Infinity"
+                        styleClass="nav-button-active"/>
+
+                <Button text="Medical Records"
+                        fx:id="recordsButton"
+                        onAction="#handleMedicalRecords"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+                <Button text="Profile"
+                        fx:id="profileButton"
+                        onAction="#handleProfile"
+                        maxWidth="Infinity"
+                        styleClass="nav-button"/>
+
+            </VBox>
+
+            <Button text="Logout"
+                    fx:id="logoutButton"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    styleClass="logout-button"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="main-scroll">
+
+            <VBox spacing="25"
+                  styleClass="main-content">
+
+                <VBox spacing="7">
+
+                    <Label text="Consultation"
+                           styleClass="page-title"/>
+
+                    <Label text="Review consultation details and record the outcome of a consultation."
+                           styleClass="page-description"/>
+
+                </VBox>
+
+                <HBox spacing="16">
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Total Consultations"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="totalConsultationsLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Pending"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="pendingConsultationsLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                    <VBox HBox.hgrow="ALWAYS"
+                          spacing="6"
+                          styleClass="summary-card">
+
+                        <Label text="Completed"
+                               styleClass="summary-title"/>
+
+                        <Label fx:id="completedConsultationsLabel"
+                               text="0"
+                               styleClass="summary-number"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <VBox spacing="15"
+                      styleClass="consultation-card">
+
+                    <Label text="Current Consultation"
+                           styleClass="section-title"/>
+
+                    <HBox spacing="14">
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="6"
+                              styleClass="information-box">
+
+                            <Label text="Patient"
+                                   styleClass="field-title"/>
+
+                            <Label fx:id="patientNameLabel"
+                                   text="No patient selected"
+                                   styleClass="field-value"/>
+
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="6"
+                              styleClass="information-box">
+
+                            <Label text="Doctor"
+                                   styleClass="field-title"/>
+
+                            <Label fx:id="doctorNameLabel"
+                                   text="No doctor selected"
+                                   styleClass="field-value"/>
+
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS"
+                              spacing="6"
+                              styleClass="information-box">
+
+                            <Label text="Date"
+                                   styleClass="field-title"/>
+
+                            <Label fx:id="consultationDateLabel"
+                                   text="No date"
+                                   styleClass="field-value"/>
+
+                        </VBox>
+
+                    </HBox>
+
+                    <VBox spacing="6">
+
+                        <Label text="Reason for Consultation"
+                               styleClass="field-title"/>
+
+                        <Label fx:id="reasonLabel"
+                               text="No consultation request selected."
+                               wrapText="true"
+                               styleClass="reason-value"/>
+
+                    </VBox>
+
+                    <VBox spacing="6">
+
+                        <Label text="Consultation Notes"
+                               styleClass="field-title"/>
+
+                        <TextArea fx:id="consultationNotesArea"
+                                  promptText="Enter consultation notes..."
+                                  prefRowCount="5"
+                                  wrapText="true"
+                                  styleClass="notes-area"/>
+
+                    </VBox>
+
+                    <Label fx:id="messageLabel"
+                           text=""
+                           wrapText="true"
+                           styleClass="message"/>
+
+                    <HBox spacing="12">
+
+                        <Button text="Approve Request"
+                                fx:id="approveRequestButton"
+                                onAction="#handleApproveRequest"
+                                styleClass="secondary-button"/>
+
+                        <Button text="Decline Request"
+                                fx:id="rejectRequestButton"
+                                onAction="#handleRejectRequest"
+                                styleClass="danger-button"/>
+
+                        <Button text="Start Consultation"
+                                fx:id="startButton"
+                                onAction="#handleStartConsultation"
+                                styleClass="primary-button"/>
+
+                        <Button text="Complete Consultation"
+                                fx:id="completeButton"
+                                onAction="#handleCompleteConsultation"
+                                styleClass="secondary-button"/>
+
+                    </HBox>
+
+                </VBox>
+
+                <VBox spacing="14"
+                      styleClass="history-card">
+
+                    <HBox alignment="CENTER_LEFT">
+
+                        <VBox spacing="5"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label text="Consultation History"
+                                   styleClass="section-title"/>
+
+                            <Label text="Previous consultation information."
+                                   styleClass="table-description"/>
+
+                        </VBox>
+
+                        <Button text="Refresh"
+                                fx:id="refreshButton"
+                                onAction="#handleRefresh"
+                                styleClass="secondary-button"/>
+
+                    </HBox>
+
+                    <VBox spacing="12"
+                          fx:id="consultationHistory">
+
+                        <HBox spacing="15"
+                              styleClass="history-item">
+
+                            <VBox spacing="5"
+                                  HBox.hgrow="ALWAYS">
+
+                                <Label fx:id="historyPatientLabel"
+                                       text="Patient Name"
+                                       styleClass="history-name"/>
+
+                                <Label fx:id="historyDoctorLabel"
+                                       text="Doctor Name"
+                                       styleClass="history-doctor"/>
+
+                            </VBox>
+
+                            <VBox spacing="5"
+                                  alignment="CENTER_RIGHT">
+
+                                <Label fx:id="historyDateLabel"
+                                       text="Date"
+                                       styleClass="history-date"/>
+
+                                <Label fx:id="historyStatusLabel"
+                                       text="COMPLETED"
+                                       styleClass="history-status"/>
+
+                            </VBox>
+
+                        </HBox>
+
+                    </VBox>
+
+                </VBox>
+
+            </VBox>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>
